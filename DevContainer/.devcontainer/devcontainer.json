@@ -1,0 +1,14 @@
+{
+  "name": ".NET Aspire dev container",
+  "dockerFile": "Dockerfile",
+  "features": {
+    "ghcr.io/dapr/cli/dapr-cli:0": { "version": "latest"}, // Comment to not install Dapr
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/github-cli:1": { "version": "latest" },
+    "ghcr.io/devcontainers/features/powershell:1": { "version": "latest" },
+    "ghcr.io/azure/azure-dev/azd:0": { "version": "latest" },
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
+  "onCreateCommand": "dapr uninstall --all && dapr init", // Comment to not install Dapr
+  "postCreateCommand": "dotnet restore" // This will not run with Rider, but will run with VS Code
+}
