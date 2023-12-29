@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DaprOutbox.ApiService\DaprOutbox.ApiService.csproj" />
+    <ProjectReference Include="..\DaprOutbox.Subscriber\DaprOutbox.Subscriber.csproj" />
     <ProjectReference Include="..\DaprOutbox.Web\DaprOutbox.Web.csproj" />
   </ItemGroup>
 
