@@ -1,5 +1,9 @@
 ﻿@page "/counter"
+@using Dapr.Client
+@using DaprOutbox.Shared
+@using System.Text.Json
 @rendermode InteractiveServer
+@inject DaprClient DaprClient
 
 <PageTitle>Counter</PageTitle>
 
@@ -10,10 +14,24 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    private int currentCount = 0;
+    private const string counterKey = "myCounter";
+    private int currentCount;
 
-    private void IncrementCount()
+    private async Task IncrementCount()
     {
         currentCount++;
+
+        var countEvent = new CountEvent(currentCount);
+        var stateTransactionRequest = new StateTransactionRequest(key: counterKey, JsonSerializer.SerializeToUtf8Bytes(countEvent), StateOperationType.Upsert);
+        
+        await DaprClient.ExecuteStateTransactionAsync(storeName: DaprConstants.StateStoreOutboxName, [stateTransactionRequest]);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var entry = await DaprClient.GetStateEntryAsync<CountEvent>(storeName: DaprConstants.StateStoreOutboxName, key: counterKey);
+        currentCount = entry?.Value?.Counter ?? 0;
+        
+        await base.OnInitializedAsync();
     }
 }

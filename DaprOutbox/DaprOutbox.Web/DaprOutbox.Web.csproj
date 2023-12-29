@@ -9,6 +9,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DaprOutbox.ServiceDefaults\DaprOutbox.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\DaprOutbox.Shared\DaprOutbox.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapr.AspNetCore" Version="1.12.0" />
   </ItemGroup>
 
 </Project>

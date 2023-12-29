@@ -12,6 +12,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprOutbox.Web", "DaprOutbo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprOutbox.Subscriber", "DaprOutbox.Subscriber\DaprOutbox.Subscriber.csproj", "{82742EE7-5BEE-4D98-B442-2A92E81894BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprOutbox.Shared", "DaprOutbox.Shared\DaprOutbox.Shared.csproj", "{A15577FF-E1DD-41B6-92BD-DA625B984D10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{82742EE7-5BEE-4D98-B442-2A92E81894BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82742EE7-5BEE-4D98-B442-2A92E81894BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82742EE7-5BEE-4D98-B442-2A92E81894BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A15577FF-E1DD-41B6-92BD-DA625B984D10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A15577FF-E1DD-41B6-92BD-DA625B984D10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A15577FF-E1DD-41B6-92BD-DA625B984D10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A15577FF-E1DD-41B6-92BD-DA625B984D10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
