@@ -17,6 +17,8 @@ builder.Services.AddDaprClient();
 
 var app = builder.Build();
 
+app.UseCloudEvents();
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
