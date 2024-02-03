@@ -5,7 +5,9 @@ builder.Services.AddDaprClient();
 
 var app = builder.Build();
 
+// Will unwrap requests that use the cloud events structured format, allowing the event payload to be read directly
 app.UseCloudEvents();
+// Maps an endpoint that will respond to requests to /dapr/subscribe
 app.MapSubscribeHandler();
 
 app.MapPost("/counter", ([FromBody]int counter, ILogger<Program> logger) =>
