@@ -10,11 +10,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DevApps101.ApiService\DevApps101.ApiService.csproj" />
+    <ProjectReference Include="..\DevApps101.CountService\DevApps101.CountService.csproj" />
     <ProjectReference Include="..\DevApps101.Web\DevApps101.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting" Version="8.0.0-preview.4.24102.19" />
+    <PackageReference Include="Aspire.Hosting.Dapr" Version="8.0.0-preview.4.24102.19" />
   </ItemGroup>
 
 </Project>

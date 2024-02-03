@@ -10,6 +10,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevApps101.ApiService", "De
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevApps101.Web", "DevApps101.Web\DevApps101.Web.csproj", "{3CD8B0CF-877C-4E73-95FD-354CD7F2148D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevApps101.CountService", "DevApps101.CountService\DevApps101.CountService.csproj", "{A8C3ECC6-3AD8-48D4-8291-7E607A719B36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{3CD8B0CF-877C-4E73-95FD-354CD7F2148D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CD8B0CF-877C-4E73-95FD-354CD7F2148D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CD8B0CF-877C-4E73-95FD-354CD7F2148D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8C3ECC6-3AD8-48D4-8291-7E607A719B36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8C3ECC6-3AD8-48D4-8291-7E607A719B36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8C3ECC6-3AD8-48D4-8291-7E607A719B36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8C3ECC6-3AD8-48D4-8291-7E607A719B36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
