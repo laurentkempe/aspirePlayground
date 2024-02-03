@@ -1,3 +1,4 @@
+using Dapr.Client;
 using DevApps101.Web;
 using DevApps101.Web.Components;
 
@@ -12,6 +13,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddHttpClient<WeatherApiClient>(client => client.BaseAddress = new("http://apiservice"));
+builder.Services.AddSingleton(new DaprClientBuilder().Build());
 
 var app = builder.Build();
 
