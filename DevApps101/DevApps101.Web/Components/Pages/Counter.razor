@@ -18,6 +18,8 @@
         _currentCount++;
 
         await DaprClient.SaveStateAsync("statestore", "count", _currentCount);
+
+        await DaprClient.PublishEventAsync("pubsub", "counter", _currentCount);
     }
 
     protected override async Task OnInitializedAsync()

@@ -7,8 +7,8 @@ var cache = builder.AddRedis("cache");
 var apiService = builder.AddProject<Projects.DevApps101_ApiService>("apiservice");
 
 // Using Dapr
-var daprStateStore = builder.AddDaprStateStore("statestore");
-var daprPubSub = builder.AddDaprPubSub("pubsub");
+// var daprStateStore = builder.AddDaprStateStore("statestore");
+// var daprPubSub = builder.AddDaprPubSub("pubsub");
 
 var countService = builder.AddProject<Projects.DevApps101_CountService>("countservice")
     .WithDaprSidecar();
