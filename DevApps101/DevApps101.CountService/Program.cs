@@ -1,4 +1,3 @@
-using Dapr;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +6,6 @@ builder.Services.AddDaprClient();
 var app = builder.Build();
 
 app.UseCloudEvents();
-app.UseRouting();
 app.MapSubscribeHandler();
 
 app.MapPost("/counter", ([FromBody]int counter, ILogger<Program> logger) =>
