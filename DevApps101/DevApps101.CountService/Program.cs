@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDaprClient();
 
 var app = builder.Build();
 
