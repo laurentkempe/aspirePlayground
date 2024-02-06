@@ -1,9 +1,12 @@
 var builder = DistributedApplication.CreateBuilder(args);
+
+// Using Dapr
 builder.AddDapr();
 
 // Using Aspire Redis Component
 var cache = builder.AddRedis("cache");
 
+// Source generator for project metadata
 var apiService = builder.AddProject<Projects.DevApps101_ApiService>("apiservice");
 
 var countService = builder.AddProject<Projects.DevApps101_CountService>("countservice")

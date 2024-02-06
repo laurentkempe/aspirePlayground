@@ -16,3 +16,5 @@ app.MapPost("/counter", ([FromBody]int counter, ILogger<Program> logger) =>
     .WithTopic("pubsub", "counter");
 
 app.Run();
+
+// Show the Services using .NET Aspire plugin
