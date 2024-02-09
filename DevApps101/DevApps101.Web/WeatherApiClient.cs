@@ -2,10 +2,9 @@ namespace DevApps101.Web;
 
 public sealed class WeatherApiClient(HttpClient httpClient)
 {
-    public async Task<WeatherForecast[]> GetWeatherAsync()
-    {
-        return await httpClient.GetFromJsonAsync<WeatherForecast[]>("/weatherforecast") ?? [];
-    }
+    public async Task<WeatherForecast[]> GetWeatherAsync() =>
+        // 5. Use the client to call the service
+        await httpClient.GetFromJsonAsync<WeatherForecast[]>("/weatherforecast") ?? [];
 }
 
 public record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)

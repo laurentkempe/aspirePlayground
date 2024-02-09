@@ -1,6 +1,6 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-// Using Dapr
+// 1. Using Dapr
 builder.AddDapr();
 
 var daprPubSub = builder.AddDaprPubSub("pubsub");

@@ -9,6 +9,7 @@ app.UseCloudEvents();
 // Maps an endpoint that will respond to requests to /dapr/subscribe
 app.MapSubscribeHandler();
 
+// 8. Minimal API counter endpoint registers on Dapr PubSub component on the counter topic
 app.MapPost("/counter", ([FromBody]int counter, ILogger<Program> logger) =>
     {
         logger.LogInformation("Counter is equal to {counter}", counter);
@@ -17,4 +18,4 @@ app.MapPost("/counter", ([FromBody]int counter, ILogger<Program> logger) =>
 
 app.Run();
 
-// Show the Services using .NET Aspire plugin
+// 9. Show the Services using .NET Aspire plugin

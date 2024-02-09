@@ -12,6 +12,7 @@ namespace Microsoft.Extensions.Hosting;
 
 public static class Extensions
 {
+    // 2. Service Defaults shared configuration between all services
     public static IHostApplicationBuilder AddServiceDefaults(this IHostApplicationBuilder builder)
     {
         builder.ConfigureOpenTelemetry();

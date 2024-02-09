@@ -4,7 +4,7 @@ using DevApps101.Web.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add service defaults & Aspire components.
+// 3. Add service defaults & Aspire components.
 builder.AddServiceDefaults();
 builder.AddRedisOutputCache("cache");
 
@@ -13,6 +13,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddHttpClient<WeatherApiClient>(
+    // 4. Configure the client using the service name
     client => client.BaseAddress = new("http://apiservice"));
 builder.Services.AddSingleton(new DaprClientBuilder().Build());
 
