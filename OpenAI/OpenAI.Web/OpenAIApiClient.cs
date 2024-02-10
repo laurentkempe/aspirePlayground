@@ -15,7 +15,7 @@ public sealed class OpenAIApiClient(HttpClient httpClient, DaprClient daprClient
 
         var summarizedArticle = await httpClient.GetFromJsonAsync<SummarizedArticle>($"/omnivore/summarize/{articleSlug}") ?? null;
 
-        var ttlInSeconds = 10;
+        var ttlInSeconds = 120;
 
         var metadata = new Dictionary<string, string>
         {
