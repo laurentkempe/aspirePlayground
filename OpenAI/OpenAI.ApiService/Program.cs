@@ -24,13 +24,13 @@ var app = builder.Build();
 app.UseExceptionHandler();
 
 // Omnivore webhook endpoint
-app.MapPost("/omnivore", async (OmnivoreWebhookRequest omnivoreWebhookRequest, OpenAIClient aiClient, IGraphQLClient graphQLClient, ILogger<Program> logger) =>
+app.MapPost("/omnivore/webhook", async (OmnivoreWebhookRequest omnivoreWebhookRequest, OpenAIClient aiClient, IGraphQLClient graphQLClient, ILogger<Program> logger) =>
 {
-    logger.LogInformation("Received page: {Page}", omnivoreWebhookRequest.Page.Title);
-    
-    var article = await GetOmnivoreArticleContent(omnivoreWebhookRequest, graphQLClient);
+    var article = await GetOmnivoreArticleContent(omnivoreWebhookRequest.Page.Slug, graphQLClient);
 
     if (article is null) return Results.NotFound("Article not found.");
+    
+    logger.LogInformation("Received page: {Page}", article.Title);
     
     var articleSummary = await GetArticleSummary(aiClient, article.Content);
 
@@ -42,8 +42,31 @@ app.MapPost("/omnivore", async (OmnivoreWebhookRequest omnivoreWebhookRequest, O
         
     return Results.Ok(new
     {
-        ArticleTitle = article.Title,
-        ArticleSummary = articleSummary
+        Title = article.Title,
+        Summary = articleSummary
+    });
+});
+
+app.MapGet("/omnivore/summarize/{articleSlug}", async (string articleSlug, OpenAIClient aiClient, IGraphQLClient graphQLClient, ILogger<Program> logger) =>
+{
+    var article = await GetOmnivoreArticleContent(articleSlug, graphQLClient);
+
+    if (article is null) return Results.NotFound("Article not found.");
+    
+    logger.LogInformation("Received page: {Page}", article.Title);
+    
+    var articleSummary = await GetArticleSummary(aiClient, article.Content);
+
+    if (articleSummary == null) return Results.Problem("Could not get article summary.");
+
+    logger.LogInformation("Article title: {ArticleTitle}", article.Title);
+
+    logger.LogInformation("Open AI: {ArticleSummary}", articleSummary);
+        
+    return Results.Ok(new
+    {
+        Title = article.Title,
+        Summary = articleSummary
     });
 });
 
@@ -51,14 +74,14 @@ app.MapDefaultEndpoints();
 
 app.Run();
 
-async Task<Article?> GetOmnivoreArticleContent(OmnivoreWebhookRequest request, IGraphQLClient graphQLClient)
+async Task<Article?> GetOmnivoreArticleContent(string articleSlug, IGraphQLClient graphQLClient)
 {
     var articleQueryRequest = new GraphQLRequest
     {
         Query = $$"""
                   query Article {
                      article(
-                       slug: "{{request.Page.Id}}"
+                       slug: "{{articleSlug}}"
                        username: "."
                        format: "markdown"
                        ) {

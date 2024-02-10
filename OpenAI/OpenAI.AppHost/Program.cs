@@ -2,7 +2,7 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 var openai = builder.AddConnectionString("openai");
 
-var apiService = builder.AddProject<Projects.OpenAI_ApiService>("apiservice")
+var apiService = builder.AddProject<Projects.OpenAI_ApiService>("openaiapiservice")
                         .WithReference(openai);
 
 builder.AddProject<Projects.OpenAI_Web>("webfrontend")
