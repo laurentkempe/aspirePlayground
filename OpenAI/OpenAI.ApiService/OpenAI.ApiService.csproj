@@ -12,11 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Azure.AI.OpenAI" Version="8.0.0-preview.4.24108.8" />
-    <PackageReference Include="Azure.AI.OpenAI" Version="1.0.0-beta.12" />
+    <PackageReference Include="Aspire.Azure.AI.OpenAI" Version="8.0.0-preview.4.24109.11" />
+    <PackageReference Include="Azure.AI.OpenAI" Version="1.0.0-beta.13" />
     <PackageReference Include="GraphQL.Client" Version="6.0.2" />
     <PackageReference Include="GraphQL.Client.Serializer.SystemTextJson" Version="6.0.2" />
-    <PackageReference Include="Thb.OmnivoreClient" Version="0.0.2-alpha.0.6" />
   </ItemGroup>
 
 </Project>

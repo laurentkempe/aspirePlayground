@@ -16,6 +16,7 @@ builder.Services.AddFluentUIComponents();
 builder.Services.AddOutputCache();
 
 builder.Services.AddHttpClient<OpenAIApiClient>(client => client.BaseAddress = new("http://openaiapiservice"));
+builder.Services.AddDaprClient();
 
 var app = builder.Build();
 
