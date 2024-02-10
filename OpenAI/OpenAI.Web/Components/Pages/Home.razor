@@ -1,0 +1,67 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@inject OpenAIApiClient OpenAiApi
+
+<PageTitle>Summarize</PageTitle>
+
+<FluentStack Orientation="Orientation.Vertical">
+
+    <p style="width: 80%;">
+        <FluentTextField @bind-Value=_slug @oninput="UpdateSlug" @onkeydown="OnKeyDown" Label="Slug" Required="true" style="width: 80%;" Placeholder="Enter omnivore article slug">
+            <FluentIcon Value="@(new Icons.Regular.Size16.Globe())" Slot="start" Color="Color.Neutral"/>
+        </FluentTextField>
+    </p>
+
+    <p>
+        <FluentButton @onclick="GenerateSummary" Disabled="@string.IsNullOrEmpty(_slug)" Appearance="Appearance.Accent">Summarize</FluentButton>
+    </p>
+    
+    <FluentLabel Typo="Typography.Subject" Weight="FontWeight.Bold">@_title</FluentLabel>
+
+    <p><FluentTextArea @bind-Value=_summary Cols="200" Resize="TextAreaResize.Both" /></p>
+    
+    <FluentOverlay @bind-Visible=@_isOverlayVisible
+                   Opacity="0.4"
+                   Alignment="Align.Center"
+                   Justification="JustifyContent.Center">
+        <FluentProgressRing />
+    </FluentOverlay>
+
+</FluentStack>
+
+@code {
+
+    string _slug = "";
+    string _summary = "";
+    string _title = "";
+    
+    bool _isOverlayVisible = false;
+
+    private async Task GenerateSummary()
+    {
+        if (string.IsNullOrWhiteSpace(_slug)) return;
+        
+        _isOverlayVisible = true;
+
+        var summarizedArticle = await OpenAiApi.GetArticleSummary(_slug);
+
+        _title = summarizedArticle?.Title ?? "";
+        _summary = summarizedArticle?.Summary ?? "";
+
+        _isOverlayVisible = false;
+        
+        if (!string.IsNullOrWhiteSpace(_title) && !string.IsNullOrWhiteSpace(_summary))
+        {
+            _slug = "";
+        }
+        
+        StateHasChanged();
+    }
+    
+    private void UpdateSlug(ChangeEventArgs e) => _slug = e.Value?.ToString() ?? "";
+    
+    private async void OnKeyDown(KeyboardEventArgs e) 
+    {
+        if (e.Key == "Enter")  await GenerateSummary();
+    }
+}

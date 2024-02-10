@@ -1,3 +1,4 @@
+using Microsoft.FluentUI.AspNetCore.Components;
 using OpenAI.Web;
 using OpenAI.Web.Components;
 
@@ -9,6 +10,8 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddFluentUIComponents();
 
 builder.Services.AddOutputCache();
 

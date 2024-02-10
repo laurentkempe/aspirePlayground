@@ -1,17 +1,16 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">OpenAI</a>
-    </div>
-</div>
+﻿@rendermode InteractiveServer
 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
-
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill" aria-hidden="true"></span> Summarize
-            </NavLink>
-        </div>
+<div class="navmenu">
+    <input type="checkbox" title="Menu expand/collapse toggle" id="navmenu-toggle" class="navmenu-icon" />
+    <label for="navmenu-toggle" class="navmenu-icon"><FluentIcon Value="@(new Icons.Regular.Size20.Navigation())" Color="Color.Fill" /></label>
+    <nav class="sitenav" aria-labelledby="main-menu" onclick="document.getElementById('navmenu-toggle').click();">
+        <FluentNavMenu Id="main-menu" Collapsible="true" Width="250" Title="Navigation menu" @bind-Expanded="expanded">
+            <FluentNavLink Href="/" Match="NavLinkMatch.All" Icon="@(new Icons.Filled.Size32.TextEditStyleCharacterA())" IconColor="Color.Accent">Summarize</FluentNavLink>
+            <FluentNavLink Href="Labels" Match="NavLinkMatch.All" Icon="@(new Icons.Regular.Size20.Bookmark())" IconColor="Color.Accent">Get labels</FluentNavLink>
+            </FluentNavMenu>
     </nav>
 </div>
+
+@code {
+    private bool expanded = true;
+}

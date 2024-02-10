@@ -1,0 +1,53 @@
+﻿@page "/labels"
+@rendermode InteractiveServer
+
+<PageTitle>Get Labels</PageTitle>
+
+<div class="storybox">
+
+    <p>
+        <FluentTextField @bind-Value=_slug @oninput="UpdateSlug" @onkeydown="OnKeyDown" Label="Slug" Required="true" style="width: 80%;" Placeholder="Enter omnivore article slug">
+            <FluentIcon Value="@(new Icons.Regular.Size16.Globe())" Slot="start" Color="Color.Neutral"/>
+        </FluentTextField>
+    </p>
+
+    <p>
+        <FluentButton @onclick="GetLabels" Disabled="@string.IsNullOrEmpty(_slug)" Appearance="Appearance.Accent">Get labels</FluentButton>
+    </p>
+    
+    <FluentOverlay @bind-Visible=@_isOverlayVisible
+                   Opacity="0.4"
+                   Alignment="Align.Center"
+                   Justification="JustifyContent.Center">
+        <FluentProgressRing />
+    </FluentOverlay>
+</div>
+
+@code {
+
+    string _slug = "";
+    
+    bool _isOverlayVisible = false;
+
+    private void GetLabels()
+    {
+        if (string.IsNullOrWhiteSpace(_slug)) return;
+        
+        _isOverlayVisible = true;
+
+        //todo Add call to get labels
+
+        _isOverlayVisible = false;
+        
+        StateHasChanged();
+    }
+    
+    private void UpdateSlug(ChangeEventArgs e) => _slug = e.Value?.ToString() ?? "";
+    
+    private static void OnKeyDown(KeyboardEventArgs e) 
+    {
+        if (e.Key == "Enter")
+        {
+        }
+    }
+}

@@ -1,17 +1,95 @@
-h1:focus {
-    outline: none;
+@import '/_content/Microsoft.FluentUI.AspNetCore.Components/css/reboot.css';
+
+body {
+    --body-font: "Segoe UI Variable", "Segoe UI", sans-serif;
+    font-family: var(--body-font);
+    font-size: var(--type-ramp-base-font-size);
+    line-height: var(--type-ramp-base-line-height);
+    margin: 0;
 }
 
-.valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
+.navmenu-icon {
+    display: none;
 }
 
-.invalid {
-    outline: 1px solid #e50930;
+.main {
+    min-height: calc(100dvh - 86px);
+    color: var(--neutral-foreground-rest);
+    align-items: stretch !important;
 }
 
-.validation-message {
-    color: #e50930;
+.body-content {
+    align-self: stretch;
+    height: unset !important;
+    display: flex;
+}
+
+.content {
+    padding: 0.5rem 1.5rem;
+    align-self: stretch !important;
+}
+
+.manage {
+    width: 100dvw;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 10px auto auto 10px;
+    background: var(--neutral-layer-4);
+    color: var(--neutral-foreground-rest);
+    align-items: center;
+    padding: 10px 10px;
+}
+
+footer .link1 {
+    grid-column: 2;
+    justify-content: start;
+}
+
+footer .link2 {
+    grid-column: 3;
+    justify-self: end;
+}
+
+footer a {
+    color: var(--neutral-foreground-rest);
+    text-decoration: none;
+}
+
+footer a:focus {
+    outline: 1px dashed;
+    outline-offset: 3px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.alert {
+    border: 1px dashed var(--accent-fill-rest);
+    padding: 5px;
+}
+
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    margin: 20px 0;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
 }
 
 .blazor-error-boundary {
@@ -20,6 +98,91 @@ h1:focus {
     color: white;
 }
 
-    .blazor-error-boundary::after {
-        content: "An error has occurred."
+.blazor-error-boundary::before {
+    content: "An error has occurred. "
+}
+
+.loading-progress {
+    position: relative;
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    margin: 20vh auto 1rem auto;
+}
+
+.loading-progress circle {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 0.6rem;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+}
+
+.loading-progress circle:last-child {
+    stroke: #1b6ec2;
+    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+    transition: stroke-dasharray 0.05s ease-in-out;
+}
+
+.loading-progress-text {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+}
+
+.loading-progress-text:after {
+    content: var(--blazor-load-percentage-text, "Loading");
+}
+
+code {
+    color: #c02d76;
+}
+
+@media (max-width: 600px) {
+    .main {
+        flex-direction: column !important;
+        row-gap: 0 !important;
     }
+
+    nav.sitenav {
+        width: 100%;
+        height: 100%;
+    }
+
+    #main-menu {
+        width: 100% !important;
+    }
+
+    #main-menu > div:first-child:is(.expander) {
+        display: none;
+    }
+
+    .navmenu {
+        width: 100%;
+    }
+
+    #navmenu-toggle {
+        appearance: none;
+    }
+
+    #navmenu-toggle ~ nav {
+        display: none;
+    }
+
+    #navmenu-toggle:checked ~ nav {
+        display: block;
+    }
+
+    .navmenu-icon {
+        cursor: pointer;
+        z-index: 10;
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        width: 20px;
+        height: 20px;
+        border: none;
+    }
+}
