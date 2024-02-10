@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.0.0
+MinimumVisualStudioVersion = 17.8.0.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenAI.AppHost", "OpenAI.AppHost\OpenAI.AppHost.csproj", "{6286C530-C373-42D0-8F84-52328E482777}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenAI.ServiceDefaults", "OpenAI.ServiceDefaults\OpenAI.ServiceDefaults.csproj", "{A756B360-A0BE-42E5-9AB2-5C0018B57926}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenAI.ApiService", "OpenAI.ApiService\OpenAI.ApiService.csproj", "{EFA4C4D6-04A9-4D85-85F6-BDECBEB6FA42}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenAI.Web", "OpenAI.Web\OpenAI.Web.csproj", "{204823DF-90B8-4EB2-B843-FC0DCECF1F94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6286C530-C373-42D0-8F84-52328E482777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6286C530-C373-42D0-8F84-52328E482777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6286C530-C373-42D0-8F84-52328E482777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6286C530-C373-42D0-8F84-52328E482777}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A756B360-A0BE-42E5-9AB2-5C0018B57926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A756B360-A0BE-42E5-9AB2-5C0018B57926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A756B360-A0BE-42E5-9AB2-5C0018B57926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A756B360-A0BE-42E5-9AB2-5C0018B57926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFA4C4D6-04A9-4D85-85F6-BDECBEB6FA42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFA4C4D6-04A9-4D85-85F6-BDECBEB6FA42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFA4C4D6-04A9-4D85-85F6-BDECBEB6FA42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFA4C4D6-04A9-4D85-85F6-BDECBEB6FA42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{204823DF-90B8-4EB2-B843-FC0DCECF1F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{204823DF-90B8-4EB2-B843-FC0DCECF1F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{204823DF-90B8-4EB2-B843-FC0DCECF1F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{204823DF-90B8-4EB2-B843-FC0DCECF1F94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED555EB7-8AF7-41E8-A773-D970DAE02943}
+	EndGlobalSection
+EndGlobal
