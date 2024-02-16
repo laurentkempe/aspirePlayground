@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.0.0
+MinimumVisualStudioVersion = 17.8.0.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrafanaDashboards.AppHost", "GrafanaDashboards.AppHost\GrafanaDashboards.AppHost.csproj", "{B187AB2D-382A-4090-B316-F9D566A29EC3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrafanaDashboards.ServiceDefaults", "GrafanaDashboards.ServiceDefaults\GrafanaDashboards.ServiceDefaults.csproj", "{62213B0E-7B8F-4F37-9669-55A4E476D465}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrafanaDashboards.ApiService", "GrafanaDashboards.ApiService\GrafanaDashboards.ApiService.csproj", "{4CDD0CA4-31D7-4B48-A1A7-FAE311F31052}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrafanaDashboards.Web", "GrafanaDashboards.Web\GrafanaDashboards.Web.csproj", "{6584CFC6-9EE1-4B0A-ABB9-9BF9605D87FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B187AB2D-382A-4090-B316-F9D566A29EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B187AB2D-382A-4090-B316-F9D566A29EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B187AB2D-382A-4090-B316-F9D566A29EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B187AB2D-382A-4090-B316-F9D566A29EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62213B0E-7B8F-4F37-9669-55A4E476D465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62213B0E-7B8F-4F37-9669-55A4E476D465}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62213B0E-7B8F-4F37-9669-55A4E476D465}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62213B0E-7B8F-4F37-9669-55A4E476D465}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CDD0CA4-31D7-4B48-A1A7-FAE311F31052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CDD0CA4-31D7-4B48-A1A7-FAE311F31052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CDD0CA4-31D7-4B48-A1A7-FAE311F31052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CDD0CA4-31D7-4B48-A1A7-FAE311F31052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6584CFC6-9EE1-4B0A-ABB9-9BF9605D87FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6584CFC6-9EE1-4B0A-ABB9-9BF9605D87FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6584CFC6-9EE1-4B0A-ABB9-9BF9605D87FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6584CFC6-9EE1-4B0A-ABB9-9BF9605D87FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97E1580D-8DA6-4CE7-9655-8232E674D0EF}
+	EndGlobalSection
+EndGlobal
