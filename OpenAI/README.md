@@ -1,4 +1,4 @@
-﻿# Omnivore, .NET Aspire and Azure OpenAI
+﻿# Omnivore, .NET Aspire, Azure OpenAI and Ollama
 
 ⚠️ Work in progress ⚠️
 
