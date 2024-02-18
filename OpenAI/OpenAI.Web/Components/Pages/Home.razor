@@ -1,6 +1,8 @@
 ﻿@page "/"
+@using OpenAI.Shared
 @rendermode InteractiveServer
-@inject OpenAIApiClient OpenAiApi
+@inject OllamaApiClient OllamaApiClient
+@inject AzureApiClient AzureApiClient
 
 <PageTitle>Summarize</PageTitle>
 
@@ -13,12 +15,21 @@
     </p>
 
     <p>
+        <FluentCombobox AriaLabel="Api" Items="@ApiNames" @bind-Value="@_apiName" Height="200px" />
         <FluentButton @onclick="GenerateSummary" Disabled="@string.IsNullOrEmpty(_slug)" Appearance="Appearance.Accent">Summarize</FluentButton>
     </p>
     
-    <FluentLabel Typo="Typography.Subject" Weight="FontWeight.Bold">@_title</FluentLabel>
+    <p>
+        <FluentLabel Typo="Typography.Subject" Weight="FontWeight.Bold">@_title</FluentLabel><br />
+        @foreach (var tag in _tags)
+        {
+            <FluentBadge Appearance="Appearance.Accent">@tag</FluentBadge>@(" ");
+        }
+    </p>
 
-    <p><FluentTextArea @bind-Value=_summary Cols="200" Resize="TextAreaResize.Both" /></p>
+    <p><FluentTextArea @bind-Value=_summary Cols="200" Rows="5" Resize="TextAreaResize.Both" /></p>
+    
+
     
     <FluentOverlay @bind-Visible=@_isOverlayVisible
                    Opacity="0.4"
@@ -34,6 +45,9 @@
     string _slug = "";
     string _summary = "";
     string _title = "";
+    string[] _tags = [];
+    static readonly string [] ApiNames = ["Ollama", "Azure"];
+    string _apiName = ApiNames[0];
     
     bool _isOverlayVisible = false;
 
@@ -43,21 +57,25 @@
         
         _isOverlayVisible = true;
 
-        var summarizedArticle = await OpenAiApi.GetArticleSummary(_slug);
+        var summarizedArticle = await GetArticleSummary();
 
         _title = summarizedArticle?.Title ?? "";
         _summary = summarizedArticle?.Summary ?? "";
+        _tags = summarizedArticle?.Tags ?? [];
 
         _isOverlayVisible = false;
         
-        if (!string.IsNullOrWhiteSpace(_title) && !string.IsNullOrWhiteSpace(_summary))
-        {
-            _slug = "";
-        }
-        
         StateHasChanged();
     }
-    
+
+    private async Task<SummarizedArticle?> GetArticleSummary() =>
+        _apiName switch
+        {
+            "Ollama" => await OllamaApiClient.GetArticleSummary(_slug),
+            "Azure" => await AzureApiClient.GetArticleSummary(_slug),
+            _ => null
+        };
+
     private void UpdateSlug(ChangeEventArgs e) => _slug = e.Value?.ToString() ?? "";
     
     private async void OnKeyDown(KeyboardEventArgs e) 

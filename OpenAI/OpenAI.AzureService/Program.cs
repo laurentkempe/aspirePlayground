@@ -1,10 +1,3 @@
-using Azure.AI.OpenAI;
-using GraphQL;
-using GraphQL.Client.Abstractions;
-using GraphQL.Client.Http;
-using GraphQL.Client.Serializer.SystemTextJson;
-using OpenAI.ApiService.Omnivore;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add service defaults & Aspire components.
@@ -26,7 +19,7 @@ app.UseExceptionHandler();
 // Omnivore webhook endpoint
 app.MapPost("/omnivore/webhook", async (OmnivoreWebhookRequest omnivoreWebhookRequest, OpenAIClient aiClient, IGraphQLClient graphQLClient, ILogger<Program> logger) =>
 {
-    var article = await GetOmnivoreArticleContent(omnivoreWebhookRequest.Page.Slug, graphQLClient);
+    var article = await OmnivoreClient.GetOmnivoreArticleContent(omnivoreWebhookRequest.Page.Slug, graphQLClient);
 
     if (article is null) return Results.NotFound("Article not found.");
     
@@ -49,7 +42,7 @@ app.MapPost("/omnivore/webhook", async (OmnivoreWebhookRequest omnivoreWebhookRe
 
 app.MapGet("/omnivore/summarize/{articleSlug}", async (string articleSlug, OpenAIClient aiClient, IGraphQLClient graphQLClient, ILogger<Program> logger) =>
 {
-    var article = await GetOmnivoreArticleContent(articleSlug, graphQLClient);
+    var article = await OmnivoreClient.GetOmnivoreArticleContent(articleSlug, graphQLClient);
 
     if (article is null) return Results.NotFound("Article not found.");
     
@@ -63,53 +56,18 @@ app.MapGet("/omnivore/summarize/{articleSlug}", async (string articleSlug, OpenA
 
     logger.LogInformation("Open AI: {ArticleSummary}", articleSummary);
         
-    return Results.Ok(new
-    {
-        Title = article.Title,
-        Summary = articleSummary
-    });
+    return Results.Ok(new SummarizedArticle(article.Title, articleSummary, []));
 });
 
 app.MapDefaultEndpoints();
 
 app.Run();
 
-async Task<Article?> GetOmnivoreArticleContent(string articleSlug, IGraphQLClient graphQLClient)
-{
-    var articleQueryRequest = new GraphQLRequest
-    {
-        Query = $$"""
-                  query Article {
-                     article(
-                       slug: "{{articleSlug}}"
-                       username: "."
-                       format: "markdown"
-                       ) {
-                         ... on ArticleSuccess {
-                           article {
-                             title
-                             content
-                             labels {
-                               name
-                             }
-                           }
-                         }
-                       }
-                     }
-                  """
-    };
-
-    var articleRoot = await graphQLClient.SendQueryAsync<ArticleRootObject>(articleQueryRequest);
-
-    if (articleRoot.Errors is not null) return null;
-
-    return articleRoot.Data.Article.Article;
-}
-
 async Task<string?> GetArticleSummary(OpenAIClient openAiClient, string articleContent)
 {
     ChatCompletionsOptions chatCompletionOptions = new()
     {
+        // TODO add this to configuration
         DeploymentName = "testing-16k",
         Messages =
         {

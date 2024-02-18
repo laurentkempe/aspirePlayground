@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OpenAI.ServiceDefaults\OpenAI.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\OpenAI.Shared\OpenAI.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

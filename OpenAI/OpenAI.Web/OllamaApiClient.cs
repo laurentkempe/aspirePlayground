@@ -1,8 +1,9 @@
 using Dapr.Client;
+using OpenAI.Shared;
 
 namespace OpenAI.Web;
 
-public sealed class OpenAIApiClient(HttpClient httpClient, DaprClient daprClient)
+public sealed class OllamaApiClient(HttpClient httpClient, DaprClient daprClient)
 {
     public async Task<SummarizedArticle?> GetArticleSummary(string articleSlug)
     {
@@ -27,5 +28,3 @@ public sealed class OpenAIApiClient(HttpClient httpClient, DaprClient daprClient
         return summarizedArticle;
     }
 }
-
-public sealed record SummarizedArticle(string Title, string Summary);

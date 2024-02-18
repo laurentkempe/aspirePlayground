@@ -15,7 +15,8 @@ builder.Services.AddFluentUIComponents();
 
 builder.Services.AddOutputCache();
 
-builder.Services.AddHttpClient<OpenAIApiClient>(client => client.BaseAddress = new("http://openaiapiservice"));
+builder.Services.AddHttpClient<OllamaApiClient>(client => client.BaseAddress = new("http://ollamaservice"));
+builder.Services.AddHttpClient<AzureApiClient>(client => client.BaseAddress = new("http://azureservice"));
 builder.Services.AddDaprClient();
 
 var app = builder.Build();

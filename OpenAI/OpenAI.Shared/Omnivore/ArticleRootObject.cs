@@ -1,5 +1,5 @@
 ﻿// ReSharper disable ClassNeverInstantiated.Global
-namespace OpenAI.ApiService.Omnivore;
+namespace OpenAI.Shared.Omnivore;
 
 public sealed record ArticleRootObject(ArticleResult Article);
 

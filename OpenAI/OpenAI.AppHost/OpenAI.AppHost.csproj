@@ -9,7 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OpenAI.ApiService\OpenAI.ApiService.csproj" />
+    <ProjectReference Include="..\OpenAI.AzureService\OpenAI.AzureService.csproj" />
+    <ProjectReference Include="..\OpenAI.OllamaService\OpenAI.OllamaService.csproj" />
     <ProjectReference Include="..\OpenAI.Web\OpenAI.Web.csproj" />
   </ItemGroup>
 

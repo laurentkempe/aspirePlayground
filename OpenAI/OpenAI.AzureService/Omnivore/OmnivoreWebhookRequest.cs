@@ -1,8 +1,6 @@
 ﻿// ReSharper disable ClassNeverInstantiated.Global
 
-using System.Text.Json.Serialization;
-
-namespace OpenAI.ApiService.Omnivore;
+namespace OpenAI.AzureService.Omnivore;
 
 /// <summary>
 /// Represents a request object received from the Omnivore webhook.
