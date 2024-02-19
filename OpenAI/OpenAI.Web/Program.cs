@@ -1,6 +1,7 @@
 using Microsoft.FluentUI.AspNetCore.Components;
 using OpenAI.Web;
 using OpenAI.Web.Components;
+using OpenAI.Web.OpenAIClients;
 
 var builder = WebApplication.CreateBuilder(args);
 

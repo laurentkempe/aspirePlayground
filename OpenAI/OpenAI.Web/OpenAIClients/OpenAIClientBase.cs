@@ -1,9 +1,9 @@
 using Dapr.Client;
 using OpenAI.Shared;
 
-namespace OpenAI.Web;
+namespace OpenAI.Web.OpenAIClients;
 
-public sealed class OllamaApiClient(HttpClient httpClient, DaprClient daprClient)
+public abstract class OpenAIClientBase(HttpClient httpClient, DaprClient daprClient)
 {
     public async Task<SummarizedArticle?> GetArticleSummary(string articleSlug)
     {
