@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting" Version="8.0.0-preview.4.24109.11" />
-    <PackageReference Include="Aspire.Hosting.Dapr" Version="8.0.0-preview.4.24109.11" />
+    <PackageReference Include="Aspire.Hosting" Version="8.0.0-preview.4.24122.1" />
+    <PackageReference Include="Aspire.Hosting.Dapr" Version="8.0.0-preview.4.24122.1" />
   </ItemGroup>
 
 </Project>
