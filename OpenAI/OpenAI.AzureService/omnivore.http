@@ -53,3 +53,44 @@ query Article {
              }
            }
 }
+
+### Get latest 5 saved articles on omnivore
+
+GRAPHQL https://api-prod.omnivore.app/api/graphql
+Cookie: auth=ADD_OMNIVORE_TOKEN
+
+query Search($after: String, $first: Int, $query: String) {
+    search(first: $first, after: $after, query: $query) {
+        ... on SearchSuccess {
+            edges {
+                cursor
+                node {
+                    id
+                    title
+                    slug
+                    url
+                    pageType
+                    createdAt
+                    isArchived
+                    author
+                    image
+                    description
+                    publishedAt
+                    labels {
+                        id
+                        name
+                        color
+                    }
+                    wordsCount
+                }
+            }
+        }
+        ... on SearchError {
+            errorCodes
+        }
+    }
+}
+
+{
+  "first": 5
+}
