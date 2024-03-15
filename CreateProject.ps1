@@ -16,7 +16,7 @@ Set-Location $ProjectName
 dotnet new gitignore
 dotnet new sln
 
-# Fluent Blazor Web
+# Fluent UI Blazor Web
 dotnet new fluentblazor --name "$ProjectName.Web"
 dotnet sln add "$ProjectName.Web/$ProjectName.Web.csproj"
 
