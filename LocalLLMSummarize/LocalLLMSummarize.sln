@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalLLMSummarize.Web", "LocalLLMSummarize.Web\LocalLLMSummarize.Web.csproj", "{4858432D-CB01-4D87-8ADB-78094A0E35E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalLLMSummarize.AppHost", "LocalLLMSummarize.AppHost\LocalLLMSummarize.AppHost.csproj", "{3DCA1277-7BE1-487F-8314-D8C9B7A3946A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalLLMSummarize.ServiceDefaults", "LocalLLMSummarize.ServiceDefaults\LocalLLMSummarize.ServiceDefaults.csproj", "{A519083A-7691-4E5E-9F5B-9E194D77B40B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmnivoreClient", "OmnivoreClient\OmnivoreClient.csproj", "{3A439BF1-3F2F-46EF-B7C8-2004FD321ED1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalLLMSummarize.SummarizeService", "LocalLLMSummarize.SummarizeService\LocalLLMSummarize.SummarizeService.csproj", "{FAF00CA2-6E2D-4342-9094-8668A809A3B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4858432D-CB01-4D87-8ADB-78094A0E35E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4858432D-CB01-4D87-8ADB-78094A0E35E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4858432D-CB01-4D87-8ADB-78094A0E35E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4858432D-CB01-4D87-8ADB-78094A0E35E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DCA1277-7BE1-487F-8314-D8C9B7A3946A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DCA1277-7BE1-487F-8314-D8C9B7A3946A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DCA1277-7BE1-487F-8314-D8C9B7A3946A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DCA1277-7BE1-487F-8314-D8C9B7A3946A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A519083A-7691-4E5E-9F5B-9E194D77B40B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A519083A-7691-4E5E-9F5B-9E194D77B40B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A519083A-7691-4E5E-9F5B-9E194D77B40B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A519083A-7691-4E5E-9F5B-9E194D77B40B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A439BF1-3F2F-46EF-B7C8-2004FD321ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A439BF1-3F2F-46EF-B7C8-2004FD321ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A439BF1-3F2F-46EF-B7C8-2004FD321ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A439BF1-3F2F-46EF-B7C8-2004FD321ED1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAF00CA2-6E2D-4342-9094-8668A809A3B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAF00CA2-6E2D-4342-9094-8668A809A3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAF00CA2-6E2D-4342-9094-8668A809A3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAF00CA2-6E2D-4342-9094-8668A809A3B1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

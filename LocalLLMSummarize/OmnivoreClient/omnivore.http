@@ -1,0 +1,707 @@
+﻿### Get an omnivore article using it's slug id
+
+GRAPHQL https://api-prod.omnivore.app/api/graphql
+Cookie: auth=ADD_OMNIVORE_TOKEN
+
+query Article {
+       article(
+           slug: "ADD_OMNIVORE_ARTICLE_ID"
+           username: "."
+           format: "markdown"
+           ) {
+             ... on ArticleSuccess {
+               article {
+                 title
+                 content
+                 labels {
+                   name
+                 }
+               }
+             }
+           }
+}
+
+### Get latest 5 saved articles on omnivore
+
+GRAPHQL https://api-prod.omnivore.app/api/graphql
+Cookie: auth=ADD_OMNIVORE_TOKEN
+
+query Search($after: String, $first: Int, $query: String) {
+    search(first: $first, after: $after, query: $query) {
+        ... on SearchSuccess {
+            edges {
+                cursor
+                node {
+                    id
+                    title
+                    slug
+                    url
+                    pageType
+                    createdAt
+                    isArchived
+                    author
+                    image
+                    description
+                    publishedAt
+                    labels {
+                        id
+                        name
+                        color
+                    }
+                    wordsCount
+                }
+            }
+        }
+        ... on SearchError {
+            errorCodes
+        }
+    }
+}
+
+{
+  "first": 5
+}
+
+### Get labels
+
+GRAPHQL https://api-prod.omnivore.app/api/graphql
+Cookie: auth=ADD_OMNIVORE_TOKEN
+
+query GetLabels {
+    labels {
+        ... on LabelsSuccess {
+            labels {
+                ...LabelFields
+            }
+        }
+        ... on LabelsError {
+            errorCodes
+        }
+    }
+}
+
+fragment LabelFields on Label {
+    id
+    name
+    color
+    description
+    createdAt
+}
+
+### Get saved searches
+
+GRAPHQL https://api-prod.omnivore.app/api/graphql
+Cookie: auth=ADD_OMNIVORE_TOKEN
+
+query SavedSearches {
+    filters {
+        ... on FiltersSuccess {
+            filters {
+                ...FiltersFragment
+            }
+        }
+        ... on FiltersError {
+            errorCodes
+        }
+    }
+}
+
+fragment FiltersFragment on Filter {
+    id
+    name
+    filter
+    position
+    visible
+    defaultFilter
+    folder
+    category
+}
+
+### Search
+
+GRAPHQL https://api-prod.omnivore.app/api/graphql
+Cookie: auth=ADD_OMNIVORE_TOKEN
+
+query Search($after: String, $first: Int, $query: String) {
+    search(first: $first, after: $after, query: $query) {
+        ... on SearchSuccess {
+            edges {
+                cursor
+                node {
+                    id
+                    title
+                    slug
+                    url
+                    pageType
+                    contentReader
+                    createdAt
+                    isArchived
+                    readingProgressPercent
+                    readingProgressTopPercent
+                    readingProgressAnchorIndex
+                    author
+                    image
+                    description
+                    publishedAt
+                    ownedByViewer
+                    originalArticleUrl
+                    uploadFileId
+                    labels {
+                        id
+                        name
+                        color
+                    }
+                    pageId
+                    shortId
+                    quote
+                    annotation
+                    state
+                    siteName
+                    siteIcon
+                    subscription
+                    readAt
+                    savedAt
+                    wordsCount
+                    recommendations {
+                        id
+                        name
+                        note
+                        user {
+                            userId
+                            name
+                            username
+                            profileImageURL
+                        }
+                        recommendedAt
+                    }
+                    highlights {
+                        ...HighlightFields
+                    }
+                }
+            }
+            pageInfo {
+                hasNextPage
+                hasPreviousPage
+                startCursor
+                endCursor
+                totalCount
+            }
+        }
+        ... on SearchError {
+            errorCodes
+        }
+    }
+}
+
+fragment HighlightFields on Highlight {
+    id
+    type
+    shortId
+    quote
+    prefix
+    suffix
+    patch
+    color
+    annotation
+    createdByMe
+    createdAt
+    updatedAt
+    sharedAt
+    highlightPositionPercent
+    highlightPositionAnchorIndex
+    labels {
+        id
+        name
+        color
+        createdAt
+    }
+}
+
+{
+  "first": 10
+}   
+
+### Get subscriptions
+
+GRAPHQL https://api-prod.omnivore.app/api/graphql
+Cookie: auth=ADD_OMNIVORE_TOKEN
+
+query GetSubscriptions($type: SubscriptionType, $sort: SortParams) {
+    subscriptions(type: $type, sort: $sort) {
+        ... on SubscriptionsSuccess {
+            subscriptions {
+                id
+                name
+                type
+                newsletterEmail
+                url
+                icon
+                description
+                status
+                unsubscribeMailTo
+                unsubscribeHttpUrl
+                createdAt
+                updatedAt
+                lastFetchedAt
+                fetchContentType
+                mostRecentItemDate
+            }
+        }
+        ... on SubscriptionsError {
+            errorCodes
+        }
+    }
+}
+{
+  "sort": {
+    "by": "UPDATED_TIME"
+  }
+}
+
+### Search first 10 in inbox
+
+GRAPHQL https://api-prod.omnivore.app/api/graphql
+Cookie: auth=ADD_OMNIVORE_TOKEN
+
+query Search($after: String, $first: Int, $query: String) {
+    search(first: $first, after: $after, query: $query) {
+        ... on SearchSuccess {
+            edges {
+                cursor
+                node {
+                    id
+                    title
+                    slug
+                    url
+                    pageType
+                    contentReader
+                    createdAt
+                    isArchived
+                    readingProgressPercent
+                    readingProgressTopPercent
+                    readingProgressAnchorIndex
+                    author
+                    image
+                    description
+                    publishedAt
+                    ownedByViewer
+                    originalArticleUrl
+                    uploadFileId
+                    labels {
+                        id
+                        name
+                        color
+                    }
+                    pageId
+                    shortId
+                    quote
+                    annotation
+                    state
+                    siteName
+                    siteIcon
+                    subscription
+                    readAt
+                    savedAt
+                    wordsCount
+                    recommendations {
+                        id
+                        name
+                        note
+                        user {
+                            userId
+                            name
+                            username
+                            profileImageURL
+                        }
+                        recommendedAt
+                    }
+                    highlights {
+                        ...HighlightFields
+                    }
+                }
+            }
+            pageInfo {
+                hasNextPage
+                hasPreviousPage
+                startCursor
+                endCursor
+                totalCount
+            }
+        }
+        ... on SearchError {
+            errorCodes
+        }
+    }
+}
+
+fragment HighlightFields on Highlight {
+    id
+    type
+    shortId
+    quote
+    prefix
+    suffix
+    patch
+    color
+    annotation
+    createdByMe
+    createdAt
+    updatedAt
+    sharedAt
+    highlightPositionPercent
+    highlightPositionAnchorIndex
+    labels {
+        id
+        name
+        color
+        createdAt
+    }
+}
+
+{
+  "first": 10,
+  "query": "in:inbox"
+}
+
+### Get next 10 articles in inbox
+
+GRAPHQL https://api-prod.omnivore.app/api/graphql
+Cookie: auth=ADD_OMNIVORE_TOKEN
+
+query Search($after: String, $first: Int, $query: String) {
+    search(first: $first, after: $after, query: $query) {
+        ... on SearchSuccess {
+            edges {
+                cursor
+                node {
+                    id
+                    title
+                    slug
+                    url
+                    pageType
+                    contentReader
+                    createdAt
+                    isArchived
+                    readingProgressPercent
+                    readingProgressTopPercent
+                    readingProgressAnchorIndex
+                    author
+                    image
+                    description
+                    publishedAt
+                    ownedByViewer
+                    originalArticleUrl
+                    uploadFileId
+                    labels {
+                        id
+                        name
+                        color
+                    }
+                    pageId
+                    shortId
+                    quote
+                    annotation
+                    state
+                    siteName
+                    siteIcon
+                    subscription
+                    readAt
+                    savedAt
+                    wordsCount
+                    recommendations {
+                        id
+                        name
+                        note
+                        user {
+                            userId
+                            name
+                            username
+                            profileImageURL
+                        }
+                        recommendedAt
+                    }
+                    highlights {
+                        ...HighlightFields
+                    }
+                }
+            }
+            pageInfo {
+                hasNextPage
+                hasPreviousPage
+                startCursor
+                endCursor
+                totalCount
+            }
+        }
+        ... on SearchError {
+            errorCodes
+        }
+    }
+}
+
+fragment HighlightFields on Highlight {
+    id
+    type
+    shortId
+    quote
+    prefix
+    suffix
+    patch
+    color
+    annotation
+    createdByMe
+    createdAt
+    updatedAt
+    sharedAt
+    highlightPositionPercent
+    highlightPositionAnchorIndex
+    labels {
+        id
+        name
+        color
+        createdAt
+    }
+}
+
+{
+  "after": "10",
+  "first": 10,
+  "query": "in:inbox"
+}
+
+### Get viewer
+
+GRAPHQL https://api-prod.omnivore.app/api/graphql
+Cookie: auth=ADD_OMNIVORE_TOKEN
+
+query Viewer {
+    me {
+        id
+        name
+        isFullUser
+        profile {
+            id
+            username
+            pictureUrl
+            bio
+        }
+        email
+        source
+        intercomHash
+        features
+    }
+}
+
+### Get article with highlights
+
+GRAPHQL https://api-prod.omnivore.app/api/graphql
+Cookie: auth=ADD_OMNIVORE_TOKEN
+
+query GetArticle(
+    $username: String!
+    $slug: String!
+    $includeFriendsHighlights: Boolean
+) {
+    article(username: $username, slug: $slug) {
+        ... on ArticleSuccess {
+            article {
+                ...ArticleFields
+                content
+                highlights(input: { includeFriends: $includeFriendsHighlights }) {
+                    ...HighlightFields
+                }
+                labels {
+                    ...LabelFields
+                }
+                recommendations {
+                    ...RecommendationFields
+                }
+            }
+        }
+        ... on ArticleError {
+            errorCodes
+        }
+    }
+}
+
+fragment ArticleFields on Article {
+    id
+    title
+    url
+    author
+    image
+    savedAt
+    createdAt
+    publishedAt
+    contentReader
+    originalArticleUrl
+    readingProgressPercent
+    readingProgressTopPercent
+    readingProgressAnchorIndex
+    slug
+    folder
+    isArchived
+    description
+    linkId
+    state
+    wordsCount
+}
+
+
+fragment HighlightFields on Highlight {
+    id
+    type
+    shortId
+    quote
+    prefix
+    suffix
+    patch
+    color
+    annotation
+    createdByMe
+    createdAt
+    updatedAt
+    sharedAt
+    highlightPositionPercent
+    highlightPositionAnchorIndex
+    labels {
+        id
+        name
+        color
+        createdAt
+    }
+}
+
+
+fragment LabelFields on Label {
+    id
+    name
+    color
+    description
+    createdAt
+}
+
+
+fragment RecommendationFields on Recommendation {
+    id
+    name
+    note
+    user {
+        userId
+        name
+        username
+        profileImageURL
+    }
+    recommendedAt
+}
+
+{
+  "username": "laurentkempe",
+  "slug": "add-memory-to-our-gen-ai-application-18e21ede310",
+  "includeFriendsHighlights": false
+}
+
+### Search first 10 in inbox
+
+GRAPHQL https://api-prod.omnivore.app/api/graphql
+Cookie: auth=ADD_OMNIVORE_TOKEN
+
+query Search($after: String, $first: Int, $query: String) {
+    search(first: $first, after: $after, query: $query) {
+        ... on SearchSuccess {
+            edges {
+                cursor
+                node {
+                    id
+                    title
+                    slug
+                    url
+                    pageType
+                    contentReader
+                    createdAt
+                    isArchived
+                    readingProgressPercent
+                    readingProgressTopPercent
+                    readingProgressAnchorIndex
+                    author
+                    image
+                    description
+                    publishedAt
+                    ownedByViewer
+                    originalArticleUrl
+                    uploadFileId
+                    labels {
+                        id
+                        name
+                        color
+                    }
+                    pageId
+                    shortId
+                    quote
+                    annotation
+                    state
+                    siteName
+                    siteIcon
+                    subscription
+                    readAt
+                    savedAt
+                    wordsCount
+                    recommendations {
+                        id
+                        name
+                        note
+                        user {
+                            userId
+                            name
+                            username
+                            profileImageURL
+                        }
+                        recommendedAt
+                    }
+                    highlights {
+                        ...HighlightFields
+                    }
+                }
+            }
+            pageInfo {
+                hasNextPage
+                hasPreviousPage
+                startCursor
+                endCursor
+                totalCount
+            }
+        }
+        ... on SearchError {
+            errorCodes
+        }
+    }
+}
+
+fragment HighlightFields on Highlight {
+    id
+    type
+    shortId
+    quote
+    prefix
+    suffix
+    patch
+    color
+    annotation
+    createdByMe
+    createdAt
+    updatedAt
+    sharedAt
+    highlightPositionPercent
+    highlightPositionAnchorIndex
+    labels {
+        id
+        name
+        color
+        createdAt
+    }
+}
+
+{
+  "first": 10,
+  "query": "in:inbox type:article"
+}

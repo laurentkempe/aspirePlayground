@@ -1,0 +1,77 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@inject DaprClient DaprClient
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, .NET Aspire & Dapr workflow!</h1>
+
+<FluentStack Orientation="Orientation.Vertical">
+    <FluentTextField @bind-value=_slug></FluentTextField>
+    <FluentButton Loading="@summarizing" OnClick="@StartWorkflowAsync" Appearance="Appearance.Accent">Summarize</FluentButton>
+    <FluentTextArea @bind-Value=_statuses Rows="12" Cols="60" Label="Logs" />
+    <FluentTextArea @bind-Value=_summary Rows="12" Cols="60" Label="Summary"/>
+</FluentStack>
+
+@code {
+
+    bool summarizing = false;
+    private string _instanceId;
+    private string _statuses;
+    private string _slug = "an-update-on-xamarin-support-in-rider-the-net-tools-blog-18e42ea824d";
+    private string _summary;
+
+    async Task StartWorkflowAsync()
+    {
+        summarizing = true;
+
+        var startWorkflowResponse = await DaprClient.StartWorkflowAsync("dapr", nameof(ArticleSummarizingWorkflow), "123", new ArticleToSummarize(_slug));
+
+        _instanceId = startWorkflowResponse.InstanceId;
+        
+        var waitForWorkflowStartAsync = await DaprClient.WaitForWorkflowStartAsync(_instanceId, "dapr");
+        
+        UpdateStatus($"Workflow created at {waitForWorkflowStartAsync.CreatedAt:HH:mm:ss}");
+        
+        if (waitForWorkflowStartAsync.RuntimeStatus == WorkflowRuntimeStatus.Running)
+        {
+            UpdateStatus($"Started at {waitForWorkflowStartAsync.LastUpdatedAt:HH:mm:ss}");
+        }
+        else
+        {
+            UpdateStatus("Failed");
+            return;
+        }
+        
+        var workflowResponse = await DaprClient.GetWorkflowAsync(_instanceId, "dapr");
+
+        while (workflowResponse.RuntimeStatus == WorkflowRuntimeStatus.Running)
+        {
+            UpdateStatus($"Still running {workflowResponse.Properties["dapr.workflow.custom_status"]}...");
+
+            await Task.Delay(1000);
+            workflowResponse = await DaprClient.GetWorkflowAsync(_instanceId, "dapr");
+        }
+        
+        if (workflowResponse.RuntimeStatus ==  WorkflowRuntimeStatus.Completed)
+        {
+            UpdateStatus($"Completed at {workflowResponse.LastUpdatedAt:HH:mm:ss}");
+
+            var articleSummarized = workflowResponse.ReadOutputAs<ArticleSummarized>();
+            _summary = articleSummarized.Summary;
+            StateHasChanged();
+        }
+        else
+        {
+            UpdateStatus($"Failed at {workflowResponse.LastUpdatedAt:HH:mm:ss}");
+        }
+
+        summarizing = false;
+    }
+
+    private void UpdateStatus(string status)
+    {
+        _statuses += $"{status}{Environment.NewLine}";
+        StateHasChanged();
+    }
+}

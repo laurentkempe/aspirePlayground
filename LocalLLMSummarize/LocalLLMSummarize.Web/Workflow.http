@@ -1,0 +1,13 @@
+﻿@daprHttpPort = 63807
+@workflowId = 1234
+
+### Start a workflow with an ID
+
+POST http://localhost:{{daprHttpPort}}/v1.0-beta1/workflows/dapr/ArticleSummarizingWorkflow/start?instanceID={{workflowId}}
+Content-Type: application/json
+
+{"ArticleId":"123"}
+
+### Get information about a workflow using its ID
+
+GET http://localhost:{{daprHttpPort}}/v1.0-beta1/workflows/dapr/{{workflowId}}
