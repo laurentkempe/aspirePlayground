@@ -1,0 +1,20 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="DaprOutbox.AppHost: http" type="AspireHostConfiguration" factoryName="Aspire Host" activateToolWindowBeforeRun="false">
+    <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/DaprOutbox.AppHost/DaprOutbox.AppHost.csproj" />
+    <option name="LAUNCH_PROFILE_NAME" value="http" />
+    <option name="TRACK_ENVS" value="1" />
+    <envs>
+      <env name="ASPNETCORE_ENVIRONMENT" value="Development" />
+      <env name="DOTNET_ENVIRONMENT" value="Development" />
+      <env name="DOTNET_DASHBOARD_OTLP_ENDPOINT_URL" value="http://localhost:19295" />
+      <env name="DOTNET_RESOURCE_SERVICE_ENDPOINT_URL" value="http://localhost:20218" />
+      <env name="DOTNET_LAUNCH_PROFILE" value="http" />
+      <env name="ASPNETCORE_URLS" value="http://localhost:15292" />
+    </envs>
+    <option name="TRACK_URL" value="1" />
+    <browser url="http://localhost:15292" start="true" />
+    <method v="2">
+      <option name="Build Solution" enabled="true" />
+    </method>
+  </configuration>
+</component>
