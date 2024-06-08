@@ -11,10 +11,10 @@ var app = builder.Build();
 // app.UseCloudEvents();
 app.MapSubscribeHandler();
 
-app.MapPost("/count", async (HttpContext context, CloudEvent cloudEvent, ILogger<Program> logger) =>
+app.MapPost("/count", (HttpContext context, CloudEvent cloudEvent, ILogger<Program> logger) =>
 {
     logger.LogInformation("Received count event: {Counter}", cloudEvent.Data);
-    
+    return Task.CompletedTask;
 }).WithTopic("pubsub", "Counter");
 
 app.Run();
