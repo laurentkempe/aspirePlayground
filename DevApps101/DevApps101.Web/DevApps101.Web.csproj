@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="8.0.0-preview.4.24108.8" />
-    <PackageReference Include="Dapr.Client" Version="1.12.0" />
+    <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" />
+    <PackageReference Include="Dapr.Client" />
   </ItemGroup>
 
 </Project>
