@@ -1,0 +1,26 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="GrafanaDashboards.AppHost: https" type="AspireHostConfiguration" factoryName="Aspire Host">
+    <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/GrafanaDashboards.AppHost/GrafanaDashboards.AppHost.csproj" />
+    <option name="PROJECT_TFM" value="net8.0" />
+    <option name="LAUNCH_PROFILE_NAME" value="https" />
+    <option name="TRACK_ARGUMENTS" value="1" />
+    <option name="ARGUMENTS" value="" />
+    <option name="TRACK_WORKING_DIRECTORY" value="1" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GrafanaDashboards.AppHost" />
+    <option name="TRACK_ENVS" value="1" />
+    <envs>
+      <env name="ASPNETCORE_ENVIRONMENT" value="Development" />
+      <env name="DOTNET_ENVIRONMENT" value="Development" />
+      <env name="DOTNET_DASHBOARD_OTLP_ENDPOINT_URL" value="https://localhost:21169" />
+      <env name="DOTNET_RESOURCE_SERVICE_ENDPOINT_URL" value="https://localhost:22043" />
+      <env name="DOTNET_LAUNCH_PROFILE" value="https" />
+      <env name="ASPNETCORE_URLS" value="https://localhost:17092;http://localhost:15292" />
+    </envs>
+    <option name="USE_PODMAN_RUNTIME" value="0" />
+    <option name="TRACK_URL" value="1" />
+    <browser url="https://localhost:17092" start="true" />
+    <method v="2">
+      <option name="Build Solution" enabled="true" />
+    </method>
+  </configuration>
+</component>

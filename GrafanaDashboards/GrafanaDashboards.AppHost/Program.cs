@@ -2,13 +2,13 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 // ⚠️ Check the port on prometheus/prometheus.yml host.docker.internal:5019
 builder.AddContainer("prometheus", "prom/prometheus")
-    .WithVolumeMount("../prometheus", "/etc/prometheus")
-    .WithEndpoint(containerPort: 9090, hostPort: 9090, scheme: "http");
+    .WithBindMount("../prometheus", "/etc/prometheus")
+    .WithEndpoint(port: 9090, targetPort: 9090, scheme: "http");
 
 builder.AddContainer("grafana", "grafana/grafana")
-    .WithVolumeMount("../grafana/config", "/etc/grafana")
-    .WithVolumeMount("../grafana/dashboards", "/var/lib/grafana/dashboards")
-    .WithEndpoint(containerPort: 3000, hostPort: 3000, name: "grafana-http", scheme: "http");
+    .WithBindMount("../grafana/config", "/etc/grafana")
+    .WithBindMount("../grafana/dashboards", "/var/lib/grafana/dashboards")
+    .WithEndpoint(port: 3000, targetPort: 3000, name: "grafana-http", scheme: "http");
 
 var apiService = builder.AddProject<Projects.GrafanaDashboards_ApiService>("apiservice");
 

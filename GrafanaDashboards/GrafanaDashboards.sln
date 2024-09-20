@@ -10,6 +10,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrafanaDashboards.ApiServic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrafanaDashboards.Web", "GrafanaDashboards.Web\GrafanaDashboards.Web.csproj", "{6584CFC6-9EE1-4B0A-ABB9-9BF9605D87FC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{40F7D417-B879-4D53-953F-6DF98537ECB4}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Packages.props = Directory.Packages.props
+		nuget.config = nuget.config
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,5 +45,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97E1580D-8DA6-4CE7-9655-8232E674D0EF}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal
