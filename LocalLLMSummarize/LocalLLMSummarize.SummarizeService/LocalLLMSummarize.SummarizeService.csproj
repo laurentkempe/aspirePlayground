@@ -7,10 +7,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.3"/>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
-        <PackageReference Include="Microsoft.SemanticKernel" Version="1.3.0" />
-        <PackageReference Include="Codeblaze.SemanticKernel.Connectors.Ollama" Version="1.3.0" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+        <PackageReference Include="Swashbuckle.AspNetCore" />
+        <PackageReference Include="Microsoft.SemanticKernel"  />
+        <PackageReference Include="Microsoft.SemanticKernel.Connectors.Ollama"  />
     </ItemGroup>
 
     <ItemGroup>

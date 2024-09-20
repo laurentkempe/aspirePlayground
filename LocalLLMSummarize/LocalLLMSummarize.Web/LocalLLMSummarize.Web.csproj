@@ -7,13 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<PackageReference Include="Dapr.Workflow" Version="1.13.0" />
-	<PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.*-* " />
-    <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.*-* " />
+	<PackageReference Include="Dapr.Workflow" />
+	<PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" />
+    <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Icons" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LocalLLMSummarize.ServiceDefaults\LocalLLMSummarize.ServiceDefaults.csproj" />
     <ProjectReference Include="..\OmnivoreClient\OmnivoreClient.csproj" />
   </ItemGroup>
+
 </Project>

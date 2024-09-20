@@ -1,11 +1,12 @@
-using Codeblaze.SemanticKernel.Connectors.Ollama;
 using Microsoft.SemanticKernel;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var kernelBuilder = Kernel.CreateBuilder();
 kernelBuilder.Services.AddTransient<HttpClient>();
-kernelBuilder.AddOllamaTextGeneration(modelId: "mistral", "http://localhost:11434");
+#pragma warning disable SKEXP0070
+kernelBuilder.AddOllamaTextGeneration("phi3:3.8b", new Uri("http://localhost:11434"));
+#pragma warning restore SKEXP0070
 
 builder.Services.AddSingleton(kernelBuilder.Build());
 

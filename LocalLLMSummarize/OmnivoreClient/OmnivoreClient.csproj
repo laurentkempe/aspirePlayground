@@ -11,5 +11,11 @@
         <PackageReference Include="GraphQL.Client.Serializer.SystemTextJson" Version="6.0.3" />
         <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0-rtm.23523.3" />
     </ItemGroup>
+
+    <ItemGroup>
+      <PackageVersion Update="GraphQL.Client" Version="6.1.0" />
+      <PackageVersion Update="GraphQL.Client.Serializer.SystemTextJson" Version="6.1.0" />
+      <PackageVersion Update="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
+    </ItemGroup>
     
 </Project>
