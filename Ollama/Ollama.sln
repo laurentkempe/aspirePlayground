@@ -1,0 +1,49 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.0.0
+MinimumVisualStudioVersion = 17.8.0.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ollama.AppHost", "Ollama.AppHost\Ollama.AppHost.csproj", "{459C7E3C-CCAD-42E6-BDD7-719429BDF203}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ollama.ServiceDefaults", "Ollama.ServiceDefaults\Ollama.ServiceDefaults.csproj", "{4165D9B0-985A-4555-ADA6-E690575AE9C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ollama.ApiService", "Ollama.ApiService\Ollama.ApiService.csproj", "{A293EEEB-D127-496B-A936-A9BA6F3A4367}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ollama.Web", "Ollama.Web\Ollama.Web.csproj", "{559C203D-2E2D-40E6-960A-A4C1DF65E7D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{05A3C036-62DC-4198-AF11-D77A90AAD0B2}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		Directory.Packages.props = Directory.Packages.props
+		nuget.config = nuget.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{459C7E3C-CCAD-42E6-BDD7-719429BDF203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{459C7E3C-CCAD-42E6-BDD7-719429BDF203}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{459C7E3C-CCAD-42E6-BDD7-719429BDF203}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{459C7E3C-CCAD-42E6-BDD7-719429BDF203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4165D9B0-985A-4555-ADA6-E690575AE9C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4165D9B0-985A-4555-ADA6-E690575AE9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4165D9B0-985A-4555-ADA6-E690575AE9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4165D9B0-985A-4555-ADA6-E690575AE9C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A293EEEB-D127-496B-A936-A9BA6F3A4367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A293EEEB-D127-496B-A936-A9BA6F3A4367}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A293EEEB-D127-496B-A936-A9BA6F3A4367}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A293EEEB-D127-496B-A936-A9BA6F3A4367}.Release|Any CPU.Build.0 = Release|Any CPU
+		{559C203D-2E2D-40E6-960A-A4C1DF65E7D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{559C203D-2E2D-40E6-960A-A4C1DF65E7D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{559C203D-2E2D-40E6-960A-A4C1DF65E7D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{559C203D-2E2D-40E6-960A-A4C1DF65E7D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {655D21DE-063A-4195-B5AD-DFDA17DF71F0}
+	EndGlobalSection
+EndGlobal
