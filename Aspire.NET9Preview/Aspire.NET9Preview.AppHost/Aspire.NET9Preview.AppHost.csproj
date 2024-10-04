@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- 👇🏼 MSBuild SDK for aspire in place of the workload This is the new way to get access to Aspire  -->
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0-preview.4.24504.4" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <!-- 👇🏼 Aspire 9 will work with .NET 8 and 9  -->
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>5e228f6c-72e5-49db-a772-d873d4e78a72</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aspire.NET9Preview.ApiService\Aspire.NET9Preview.ApiService.csproj" />
+    <ProjectReference Include="..\Aspire.NET9Preview.Web\Aspire.NET9Preview.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" />
+  </ItemGroup>
+
+</Project>
