@@ -9,6 +9,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DaprPubSub.ServiceDefaults\DaprPubSub.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\DaprPubSub.Shared\DaprPubSub.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CloudNative.CloudEvents" />
+    <PackageReference Include="Dapr.AspNetCore" />
   </ItemGroup>
 
 </Project>

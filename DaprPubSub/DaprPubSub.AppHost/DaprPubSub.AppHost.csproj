@@ -9,12 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DaprPubSub.ApiService\DaprPubSub.ApiService.csproj" />
+    <ProjectReference Include="..\DaprPubSub.Subscriber\DaprPubSub.Subscriber.csproj" />
     <ProjectReference Include="..\DaprPubSub.Web\DaprPubSub.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="Aspire.Hosting.Dapr" />
   </ItemGroup>
 
 </Project>

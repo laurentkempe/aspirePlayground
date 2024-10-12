@@ -6,7 +6,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprPubSub.AppHost", "DaprP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprPubSub.ServiceDefaults", "DaprPubSub.ServiceDefaults\DaprPubSub.ServiceDefaults.csproj", "{1ABDD7E3-2CA2-4589-96FF-51A652063D21}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprPubSub.ApiService", "DaprPubSub.ApiService\DaprPubSub.ApiService.csproj", "{502C720B-0CC0-48F3-B650-1BA8E7558A4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprPubSub.Subscriber", "DaprPubSub.Subscriber\DaprPubSub.Subscriber.csproj", "{502C720B-0CC0-48F3-B650-1BA8E7558A4B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprPubSub.Web", "DaprPubSub.Web\DaprPubSub.Web.csproj", "{D46FC17E-1ABC-4456-8427-072C54314920}"
 EndProject
@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{7A
 		Directory.Packages.props = Directory.Packages.props
 		nuget.config = nuget.config
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprPubSub.Shared", "DaprPubSub.Shared\DaprPubSub.Shared.csproj", "{E4AD48A4-2DFF-4F22-A7B1-AC4C564814F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{D46FC17E-1ABC-4456-8427-072C54314920}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D46FC17E-1ABC-4456-8427-072C54314920}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D46FC17E-1ABC-4456-8427-072C54314920}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4AD48A4-2DFF-4F22-A7B1-AC4C564814F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4AD48A4-2DFF-4F22-A7B1-AC4C564814F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4AD48A4-2DFF-4F22-A7B1-AC4C564814F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4AD48A4-2DFF-4F22-A7B1-AC4C564814F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
