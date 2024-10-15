@@ -1,0 +1,69 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@inject AIApiClient AIApiClient
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello <a href="https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview">.NET Aspire</a>, <a href="https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/">Microsoft.Extensions.AI</a>, <a href="https://www.ollama.com/">Ollama</a>, <a href="https://www.ollama.com/blog/tool-support">Tool calling</a>, and <a href="https://learn.microsoft.com/en-us/dotnet/core/diagnostics/observability-with-otel">OpenTelemetry</a>!</h1>
+
+<FluentStack  Orientation="Orientation.Vertical" Width="100%">
+    
+    <FluentStack Style="border: 1px dotted var(--accent-fill-rest); padding: 5px" Width="100%">
+        <FluentStack Orientation="Orientation.Vertical" Width="50%">
+            <div class="demopannel">
+                <FluentTextArea @bind-Value="@_question" Rows="12" Cols="120" Label="Question?"></FluentTextArea>
+            </div>
+            <div class="demopanel">
+                <FluentStack Orientation="Orientation.Horizontal" VerticalAlignment="VerticalAlignment.Center">
+                    <FluentButton Autofocus="true" Loading="@_answering" OnClick="@AskAsync" Appearance="Appearance.Accent">Ask</FluentButton>
+                    <FluentLabel Typo="Typography.Body" >@_time</FluentLabel>
+                </FluentStack>
+            </div>
+        </FluentStack>
+        <div class="demopanel"><FluentTextArea @bind-Value="@_answer" Rows="12" Cols="120" Label="Answer"></FluentTextArea></div>
+    </FluentStack>
+    
+</FluentStack>
+
+@code {
+
+    private string _question = "";
+    private string _answer = "";
+    private bool _answering;
+    private string _time = "";
+    private readonly System.Timers.Timer _timer = new(200);
+    private readonly System.Diagnostics.Stopwatch _stopwatch = new();
+
+    private async Task AskAsync()
+    {
+        _answering = true;
+        _answer = "";
+        
+        _timer.Start();
+        _stopwatch.Restart();
+        
+        _answer = await AIApiClient.GetAnswerAsync(_question);
+
+        _timer.Stop();
+        _stopwatch.Stop();
+        
+        UpdateElapsedTime(this, null);
+
+        _answering = false;
+    }
+    
+    private void UpdateElapsedTime(object sender, System.Timers.ElapsedEventArgs e)
+    {
+        _time = $"{_stopwatch.Elapsed.Seconds} seconds and {_stopwatch.Elapsed.Milliseconds} milliseconds";
+        InvokeAsync(StateHasChanged);
+    }
+    
+    protected override void OnInitialized()
+    {
+        _question = "Hi I am Laurent, what time is it in Illzach, France?";
+
+        _timer.Elapsed += UpdateElapsedTime;
+        
+        base.OnInitialized();
+    }
+}
