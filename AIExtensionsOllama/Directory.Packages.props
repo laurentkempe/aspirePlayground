@@ -2,9 +2,10 @@
   <PropertyGroup>
     <!-- Enable central package management, https://learn.microsoft.com/en-us/nuget/consume-packages/Central-Package-Management -->
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <AspireVersion>9.0.0-rc.1.24511.1</AspireVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Aspire.Hosting.AppHost" Version="9.0.0-rc.1.24511.1" />
+    <PackageVersion Include="Aspire.Hosting.AppHost" Version="$(AspireVersion)" />
     <PackageVersion Include="Microsoft.Extensions.AI" Version="9.0.0-preview.9.24511.3" />
     <PackageVersion Include="Microsoft.Extensions.AI.Ollama" Version="9.0.0-preview.9.24511.3" />
     <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="9.0.0-rc.2.24473.5" />
