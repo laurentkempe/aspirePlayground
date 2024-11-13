@@ -17,7 +17,7 @@ var tracerProvider = OpenTelemetry.Sdk.CreateTracerProviderBuilder()
 builder.Services.AddChatClient(clientBuilder => clientBuilder
     .UseLogging()
     .UseFunctionInvocation()
-    .UseOpenTelemetry(sourceName, instance => {
+    .UseOpenTelemetry(sourceName: sourceName, configure: instance => {
         instance.EnableSensitiveData = true;
     })
     .Use(new OllamaChatClient(new Uri("http://localhost:11434/"), "llama3.2:3b")));
