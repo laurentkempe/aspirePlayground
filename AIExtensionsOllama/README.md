@@ -2,7 +2,7 @@
 
 This is a web project to be able to test
 
-* [.NET Aspire 9 RC 1](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview)
+* [.NET Aspire 9](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview)
 * [Microsoft.Extensions.AI](https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/)
 * [Ollama](https://www.ollama.com/)
 * [Tool calling](https://www.ollama.com/blog/tool-support)
