@@ -2,10 +2,11 @@
   <PropertyGroup>
     <!-- Enable central package management, https://learn.microsoft.com/en-us/nuget/consume-packages/Central-Package-Management -->
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <AspireVersion>9.0.0</AspireVersion>
+    <!-- 👇🏼 Global definition of the Aspire.AppHost.Sdk version  -->
+    <AspireAppHostVersion>9.0.0</AspireAppHostVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Aspire.Hosting.AppHost" Version="$(AspireVersion)" />
+    <PackageVersion Include="Aspire.Hosting.AppHost" Version="$(AspireAppHostVersion)" />
     <PackageVersion Include="Microsoft.Extensions.AI" Version="9.0.0-preview.9.24556.5" />
     <PackageVersion Include="Microsoft.Extensions.AI.Ollama" Version="9.0.0-preview.9.24556.5" />
     <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="9.0.0" />
@@ -16,9 +17,9 @@
     <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.10.0" />
     <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.10.0" />
     <PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.9.0" />
-    <PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="1.9.0" />
-    <PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="1.9.0" />
-    <PackageVersion Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.10.3" />
-    <PackageVersion Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.10.3" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="1.10.0" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="1.10.0" />
+    <PackageVersion Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.10.4" />
+    <PackageVersion Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.10.4" />
   </ItemGroup>
 </Project>
