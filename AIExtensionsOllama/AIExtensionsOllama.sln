@@ -10,6 +10,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AIExtensionsOllama.AIServic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AIExtensionsOllama.Web", "AIExtensionsOllama.Web\AIExtensionsOllama.Web.csproj", "{A313A0F0-8D2A-407E-9CD9-DFDDBF652CD7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ressources", "Ressources", "{D1AE644B-F24D-4A98-9626-228FFAA81887}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		ressources\AIExtensionsOllama-Traces.png = ressources\AIExtensionsOllama-Traces.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -52,7 +52,7 @@
         _answering = false;
     }
     
-    private void UpdateElapsedTime(object sender, System.Timers.ElapsedEventArgs e)
+    private void UpdateElapsedTime(object? sender, System.Timers.ElapsedEventArgs? e)
     {
         _time = $"{_stopwatch.Elapsed.Seconds} seconds and {_stopwatch.Elapsed.Milliseconds} milliseconds";
         InvokeAsync(StateHasChanged);
