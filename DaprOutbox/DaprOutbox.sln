@@ -14,11 +14,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprOutbox.Subscriber", "Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprOutbox.Shared", "DaprOutbox.Shared\DaprOutbox.Shared.csproj", "{A15577FF-E1DD-41B6-92BD-DA625B984D10}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{4244F617-D06A-4548-8B59-7E61B7DFCC00}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ressources", "Ressources", "{4244F617-D06A-4548-8B59-7E61B7DFCC00}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
-		Directory.Packages.props = Directory.Packages.props
-		nuget.config = nuget.config
 	EndProjectSection
 EndProject
 Global

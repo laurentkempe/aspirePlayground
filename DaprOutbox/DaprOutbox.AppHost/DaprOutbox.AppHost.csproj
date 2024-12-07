@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <!-- 👇🏼 MSBuild SDK for aspire in place of the workload This is the new way to get access to Aspire  -->
+  <Sdk Name="Aspire.AppHost.Sdk" Version="$(AspireAppHostVersion)" />
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
     <IsAspireHost>true</IsAspireHost>
     <UserSecretsId>9a79788e-4a4b-49d0-ab1d-de92171be87c</UserSecretsId>
   </PropertyGroup>
