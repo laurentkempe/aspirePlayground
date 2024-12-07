@@ -10,10 +10,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprPubSub.Subscriber", "Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprPubSub.Web", "DaprPubSub.Web\DaprPubSub.Web.csproj", "{D46FC17E-1ABC-4456-8427-072C54314920}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{7AA6EDEF-E6F7-492E-B049-7EE97A0766F4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ressources", "Ressources", "{7AA6EDEF-E6F7-492E-B049-7EE97A0766F4}"
 	ProjectSection(SolutionItems) = preProject
-		Directory.Packages.props = Directory.Packages.props
-		nuget.config = nuget.config
+		ressources\img.png = ressources\img.png
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprPubSub.Shared", "DaprPubSub.Shared\DaprPubSub.Shared.csproj", "{E4AD48A4-2DFF-4F22-A7B1-AC4C564814F6}"
