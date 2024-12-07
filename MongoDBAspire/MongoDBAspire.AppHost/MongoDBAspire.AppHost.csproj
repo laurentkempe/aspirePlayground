@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0"/>
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsAspireHost>true</IsAspireHost>
+        <UserSecretsId>bb53e723-4fd3-4dc4-b336-cfc933c22055</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\MongoDBAspire.ApiService\MongoDBAspire.ApiService.csproj" />
+        <ProjectReference Include="..\MongoDBAspire.FluentWeb\MongoDBAspire.FluentWeb.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Hosting.AppHost" Version="9.0.0"/>
+        <PackageReference Include="Aspire.Hosting.MongoDB" Version="9.0.0" />
+        <PackageReference Include="Aspire.Hosting.Redis" Version="9.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="mongodb\rs-initiate.js" />
+      <Resource Include="mongodb-init\01-initiate.js">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Resource>
+    </ItemGroup>
+
+</Project>
