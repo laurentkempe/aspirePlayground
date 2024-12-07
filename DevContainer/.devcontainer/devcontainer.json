@@ -2,13 +2,27 @@
   "name": ".NET Aspire dev container",
   "dockerFile": "Dockerfile",
   "features": {
+    "ghcr.io/devcontainers/features/dotnet:2": {
+      "version": "8.0",
+      "additionalVersions": "9.0",
+      "workloads": "aspire"
+    },
     "ghcr.io/dapr/cli/dapr-cli:0": { "version": "latest"}, // Comment to not install Dapr
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": { "version": "latest" },
     "ghcr.io/devcontainers/features/github-cli:1": { "version": "latest" },
-    "ghcr.io/devcontainers/features/powershell:1": { "version": "latest" },
+    "ghcr.io/devcontainers/features/powershell:1":
+    {
+      "version": "latest",
+      "modules": "PSReadLine,Terminal-Icons,z",
+      "powershellProfileURL": "https://raw.githubusercontent.com/laurentkempe/dotfiles/refs/heads/master/PowerShell/Microsoft.PowerShell_profile.ps1"
+    },
     "ghcr.io/azure/azure-dev/azd:0": { "version": "latest" },
-    "ghcr.io/devcontainers/features/common-utils:2": {}
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": false,
+      "installOhMyZsh": false,
+      "installOhMyZshConfig": false 
+    }
   },
-  "onCreateCommand": "dapr uninstall --all && dapr init", // Comment to not install Dapr
-  "postCreateCommand": "dotnet restore" // This will not run with Rider, but will run with VS Code
+  "onCreateCommand": "dotnet restore",
+  "postCreateCommand": "/usr/bin/bash ./.devcontainer/postCreateCommand.sh > ~/post-create.log"
 }

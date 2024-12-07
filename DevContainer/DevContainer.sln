@@ -11,10 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevContainer.ServiceDefault
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevContainer.Web", "DevContainer.Web\DevContainer.Web.csproj", "{77470C06-FB77-41B8-966E-1AEC180FB57F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{6AD25F58-EF65-46B1-ABFB-EC20C22B14CD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ressources", "Ressources", "{6AD25F58-EF65-46B1-ABFB-EC20C22B14CD}"
 	ProjectSection(SolutionItems) = preProject
-		Directory.Packages.props = Directory.Packages.props
-		nuget.config = nuget.config
 		README.md = README.md
 	EndProjectSection
 EndProject
