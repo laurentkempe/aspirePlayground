@@ -10,11 +10,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ollama.ApiService", "Ollama
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ollama.Web", "Ollama.Web\Ollama.Web.csproj", "{559C203D-2E2D-40E6-960A-A4C1DF65E7D5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{05A3C036-62DC-4198-AF11-D77A90AAD0B2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ressources", "Ressources", "{05A3C036-62DC-4198-AF11-D77A90AAD0B2}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
-		Directory.Packages.props = Directory.Packages.props
-		nuget.config = nuget.config
 	EndProjectSection
 EndProject
 Global
