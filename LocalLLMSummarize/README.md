@@ -1,5 +1,8 @@
 # LocalLLMSummarize
 
+⚠️ Omnivore.app has been discontinued, so this sample is not working anymore.
+💡 Replace it using https://readwise.io/reader_api
+
 The goal of this project is to have a simple web application which get a saved article from [omnivore.app](https://omnivore.app/).
 The application then summarize the articles using a local LLM and display the summary to the user.
 

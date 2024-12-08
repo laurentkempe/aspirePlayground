@@ -1,21 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
-
     <ItemGroup>
-        <PackageReference Include="GraphQL.Client" Version="6.0.3" />
-        <PackageReference Include="GraphQL.Client.Serializer.SystemTextJson" Version="6.0.3" />
-        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0-rtm.23523.3" />
+        <PackageReference Include="GraphQL.Client" />
+        <PackageReference Include="GraphQL.Client.Serializer.SystemTextJson" />
+        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageVersion Update="GraphQL.Client" Version="6.1.0" />
-      <PackageVersion Update="GraphQL.Client.Serializer.SystemTextJson" Version="6.1.0" />
-      <PackageVersion Update="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
-    </ItemGroup>
-    
 </Project>

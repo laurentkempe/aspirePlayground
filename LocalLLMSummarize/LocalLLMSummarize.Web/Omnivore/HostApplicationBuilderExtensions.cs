@@ -16,8 +16,8 @@ public static class HostApplicationBuilderExtensions
             .AddJsonFile(appsettingsJson, optional: false, reloadOnChange: true)
             .Build();
         
-        var apiUrl = configuration.GetConnectionString("omnivoreApiUrl");
-        var authToken = configuration.GetConnectionString("omnivoreAuthToken");
+        var apiUrl = configuration.GetConnectionString("omnivoreApiUrl") ?? throw new Exception("Omnivore API URL not found in appsettings.json");
+        var authToken = configuration.GetConnectionString("omnivoreAuthToken") ?? throw new Exception("Omnivore Auth Token not found in appsettings.json");
         
         builder.Services.AddSingleton(new OmnivoreClient.OmnivoreClient(apiUrl, authToken));
 

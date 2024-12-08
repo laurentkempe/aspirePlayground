@@ -15,9 +15,12 @@ public class GetArticleActivity(OmnivoreClient.OmnivoreClient omnivoreClient, IL
 
         var articleContent = await omnivoreClient.GetArticleContent(input.ArticleId);
 
+        if (articleContent == null) return ArticleContent.Empty;
+        
         if (logger.IsEnabled(LogLevel.Information))
         {
-            logger.LogInformation("Loaded article {ArticleId} with '{ArticleTitle}'", input.ArticleId, articleContent.Title);
+            logger.LogInformation("Loaded article {ArticleId} with '{ArticleTitle}'", input.ArticleId,
+                articleContent.Title);
         }
         
         return await Task.FromResult(new ArticleContent(input.ArticleId,  articleContent.Title, articleContent.Content));

@@ -8,22 +8,22 @@
 
 <FluentStack Orientation="Orientation.Vertical">
     <FluentTextField @bind-value=_slug></FluentTextField>
-    <FluentButton Loading="@summarizing" OnClick="@StartWorkflowAsync" Appearance="Appearance.Accent">Summarize</FluentButton>
+    <FluentButton Loading="@_summarizing" OnClick="@StartWorkflowAsync" Appearance="Appearance.Accent">Summarize</FluentButton>
     <FluentTextArea @bind-Value=_statuses Rows="12" Cols="60" Label="Logs" />
     <FluentTextArea @bind-Value=_summary Rows="12" Cols="60" Label="Summary"/>
 </FluentStack>
 
 @code {
 
-    bool summarizing = false;
-    private string _instanceId;
-    private string _statuses;
+    bool _summarizing = false;
+    private string? _instanceId;
+    private string? _statuses;
     private string _slug = "an-update-on-xamarin-support-in-rider-the-net-tools-blog-18e42ea824d";
-    private string _summary;
+    private string _summary = "";
 
     async Task StartWorkflowAsync()
     {
-        summarizing = true;
+        _summarizing = true;
 
         var startWorkflowResponse = await DaprClient.StartWorkflowAsync("dapr", nameof(ArticleSummarizingWorkflow), "123", new ArticleToSummarize(_slug));
 
@@ -66,7 +66,7 @@
             UpdateStatus($"Failed at {workflowResponse.LastUpdatedAt:HH:mm:ss}");
         }
 
-        summarizing = false;
+        _summarizing = false;
     }
 
     private void UpdateStatus(string status)

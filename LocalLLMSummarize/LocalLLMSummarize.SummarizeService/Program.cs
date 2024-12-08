@@ -53,7 +53,7 @@ async Task<SummarizedArticle> SummarizeUsingOllama(ArticleContent article, Kerne
     var summary = result.GetValue<string>();
 
     logger.LogInformation("Json: {Json}", summary);
-    return new SummarizedArticle(article.Title, summary, []);
+    return new SummarizedArticle(article.Title, summary ?? "", []);
 }
 
 public sealed record ArticleContent(string ArticleId, string Title, string Content);
