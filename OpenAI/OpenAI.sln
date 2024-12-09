@@ -6,13 +6,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenAI.AppHost", "OpenAI.Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenAI.ServiceDefaults", "OpenAI.ServiceDefaults\OpenAI.ServiceDefaults.csproj", "{A756B360-A0BE-42E5-9AB2-5C0018B57926}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenAI.AzureService", "OpenAI.AzureService\OpenAI.AzureService.csproj", "{EFA4C4D6-04A9-4D85-85F6-BDECBEB6FA42}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenAI.Web", "OpenAI.Web\OpenAI.Web.csproj", "{204823DF-90B8-4EB2-B843-FC0DCECF1F94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenAI.OllamaService", "OpenAI.OllamaService\OpenAI.OllamaService.csproj", "{D0FF068C-1F24-489F-A4BA-E2929826A409}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenAI.SummarizeService", "OpenAI.SummarizeService\OpenAI.SummarizeService.csproj", "{D0FF068C-1F24-489F-A4BA-E2929826A409}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenAI.Shared", "OpenAI.Shared\OpenAI.Shared.csproj", "{C32DE07C-8D18-4D49-845C-80A0EDB559FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ressources", "Ressources", "{B6107FD7-87AD-4F9A-B588-CD262ED9A4EF}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,10 +31,6 @@ Global
 		{A756B360-A0BE-42E5-9AB2-5C0018B57926}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A756B360-A0BE-42E5-9AB2-5C0018B57926}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A756B360-A0BE-42E5-9AB2-5C0018B57926}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EFA4C4D6-04A9-4D85-85F6-BDECBEB6FA42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFA4C4D6-04A9-4D85-85F6-BDECBEB6FA42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EFA4C4D6-04A9-4D85-85F6-BDECBEB6FA42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EFA4C4D6-04A9-4D85-85F6-BDECBEB6FA42}.Release|Any CPU.Build.0 = Release|Any CPU
 		{204823DF-90B8-4EB2-B843-FC0DCECF1F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{204823DF-90B8-4EB2-B843-FC0DCECF1F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{204823DF-90B8-4EB2-B843-FC0DCECF1F94}.Release|Any CPU.ActiveCfg = Release|Any CPU

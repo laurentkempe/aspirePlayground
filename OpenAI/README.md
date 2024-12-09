@@ -1,6 +1,7 @@
 ﻿# Omnivore, .NET Aspire, Azure OpenAI and Ollama
 
-⚠️ Work in progress ⚠️
+⚠️ Omnivore.app has been discontinued, so this sample is not working anymore.
+💡 Replace it using https://readwise.io/reader_api
 
 The original idea comes from the [omnivore](https://omnivore.app/) blog post, by [Jan Beck](https://github.com/jancbeck), [Using ChatGPT to automatically add annotations to your Omnivore saved articles](https://blog.omnivore.app/p/using-chatgpt-to-automatically-add). His idea was to use ChatGPT to automatically add annotations to your Omnivore saved articles.
 
