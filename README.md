@@ -14,3 +14,9 @@ Some experiments around [.NET Aspire](https://learn.microsoft.com/en-us/dotnet/a
 - [Grafana dashboards](https://github.com/laurentkempe/aspirePlayground/tree/main/GrafanaDashboards), simplest project showing the integration of Grafana with Prometheus with .NET Aspire.
 - [DevContainer for .NET Aspire](https://github.com/laurentkempe/aspirePlayground/tree/main/DevContainer), demonstrates how to use a DevContainer to develop a .NET Aspire application.
 - [DevApps 101 - .NET Aspire](https://github.com/laurentkempe/aspirePlayground/tree/main/DevApps101), code pour la démo de l'épisode 101 de DevApps lors duquel j'ai présenté .NET Aspire.
+
+## Other projects
+
+From my [AI Aspire playground](https://github.com/laurentkempe/aiPlayground)
+
+- [DeepSeekOllamaAspire](https://github.com/laurentkempe/aiPlayground/tree/main/DeepSeekOllamaAspire) Explore how to run DeepSeek-R1 by harnessing the capabilities of .NET Aspire alongside Ollama on your local environment.
