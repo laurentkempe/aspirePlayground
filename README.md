@@ -19,4 +19,4 @@ Some experiments around [.NET Aspire](https://learn.microsoft.com/en-us/dotnet/a
 
 From my [AI Aspire playground](https://github.com/laurentkempe/aiPlayground)
 
-- [DeepSeekOllamaAspire](https://github.com/laurentkempe/aiPlayground/tree/main/DeepSeekOllamaAspire) Explore how to run DeepSeek-R1 by harnessing the capabilities of .NET Aspire alongside Ollama on your local environment.
+- [DeepSeekOllamaAspire](https://github.com/laurentkempe/aiPlayground/tree/main/DeepSeekOllamaAspire) Explore how to run DeepSeek-R1 distilled model by harnessing the capabilities of .NET Aspire alongside Ollama on your local environment.
