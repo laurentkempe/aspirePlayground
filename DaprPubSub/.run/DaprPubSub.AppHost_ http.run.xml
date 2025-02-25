@@ -1,7 +1,7 @@
 ﻿<component name="ProjectRunConfigurationManager">
   <configuration default="false" name="DaprPubSub.AppHost: http" type="AspireHostConfiguration" factoryName="Aspire Host">
     <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/DaprPubSub.AppHost/DaprPubSub.AppHost.csproj" />
-    <option name="PROJECT_TFM" value="net8.0" />
+    <option name="PROJECT_TFM" value="net9.0" />
     <option name="LAUNCH_PROFILE_NAME" value="http" />
     <option name="TRACK_ARGUMENTS" value="1" />
     <option name="ARGUMENTS" value="" />
@@ -9,12 +9,12 @@
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DaprPubSub.AppHost" />
     <option name="TRACK_ENVS" value="1" />
     <envs>
-      <env name="DOTNET_ENVIRONMENT" value="Development" />
       <env name="ASPNETCORE_ENVIRONMENT" value="Development" />
-      <env name="DOTNET_DASHBOARD_OTLP_ENDPOINT_URL" value="http://localhost:19295" />
-      <env name="DOTNET_RESOURCE_SERVICE_ENDPOINT_URL" value="http://localhost:20218" />
       <env name="ASPNETCORE_URLS" value="http://localhost:15292" />
+      <env name="DOTNET_DASHBOARD_OTLP_ENDPOINT_URL" value="http://localhost:19295" />
+      <env name="DOTNET_ENVIRONMENT" value="Development" />
       <env name="DOTNET_LAUNCH_PROFILE" value="http" />
+      <env name="DOTNET_RESOURCE_SERVICE_ENDPOINT_URL" value="http://localhost:20218" />
     </envs>
     <option name="USE_PODMAN_RUNTIME" value="0" />
     <option name="TRACK_URL" value="1" />
