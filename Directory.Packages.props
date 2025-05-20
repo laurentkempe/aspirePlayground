@@ -14,14 +14,14 @@
     <PackageVersion Include="Aspire.Hosting.Redis" Version="9.3.0" />
     <PackageVersion Include="Aspire.MongoDB.Driver" Version="9.3.0" />
     <PackageVersion Include="Aspire.StackExchange.Redis.OutputCaching" Version="9.3.0" />
-    <PackageVersion Include="CloudNative.CloudEvents" Version="2.9.0" />
+    <PackageVersion Include="CloudNative.CloudEvents" Version="2.8.0" />
     <PackageVersion Include="Codeblaze.SemanticKernel.Connectors.Ollama" Version="1.3.3" />
     <PackageVersion Include="Dapr.AspNetCore" Version="1.15.4" />
     <PackageVersion Include="Dapr.Client" Version="1.15.4" />
     <PackageVersion Include="Dapr.Workflow" Version="1.15.4" />
-    <PackageVersion Include="GraphQL.Client" Version="6.1.1" />
-    <PackageVersion Include="GraphQL.Client.Abstractions" Version="6.1.1" />
-    <PackageVersion Include="GraphQL.Client.Serializer.SystemTextJson" Version="6.1.1" />
+    <PackageVersion Include="GraphQL.Client" Version="6.1.0" />
+    <PackageVersion Include="GraphQL.Client.Abstractions" Version="6.1.0" />
+    <PackageVersion Include="GraphQL.Client.Serializer.SystemTextJson" Version="6.1.0" />
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.2" />
     <PackageVersion Include="Microsoft.Extensions.AI" Version="9.0.0-preview.13.24576.9" />
     <PackageVersion Include="Microsoft.Extensions.AI.Ollama" Version="9.0.0-preview.13.24576.9" />
@@ -42,9 +42,9 @@
     <PackageVersion Include="OpenTelemetry.Exporter.Prometheus.AspNetCore" Version="1.12.0" />
     <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.12.0" />
     <PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.12.0" />
-    <PackageVersion Include="OpenTelemetry.Instrumentation.GrpcNetClient" Version="1.12.0" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.GrpcNetClient" Version="1.12.0-beta.1" />
     <PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="1.12.0" />
-    <PackageVersion Include="OpenTelemetry.Instrumentation.Process" Version="1.1.0" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.Process" Version="0.5.0-beta.7" />
     <PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="1.12.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="7.2.0" />
   </ItemGroup>
