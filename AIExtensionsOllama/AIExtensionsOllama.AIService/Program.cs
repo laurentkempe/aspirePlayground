@@ -7,7 +7,7 @@ builder.AddServiceDefaults();
 builder.Services.AddProblemDetails();
 
 // 👇🏼 Configure OpenTelemetry Exporter
-var sourceName  = Guid.NewGuid().ToString();
+var sourceName = Guid.NewGuid().ToString();
 var tracerProvider = OpenTelemetry.Sdk.CreateTracerProviderBuilder()
     .AddSource(sourceName)
     .AddOtlpExporter()
