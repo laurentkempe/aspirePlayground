@@ -1,6 +1,5 @@
-﻿@page "/"
+@page "/"
 @rendermode InteractiveServer
-@using Dapr.Client
 @inject DaprClient DaprClient
 
 <PageTitle>Home</PageTitle>
@@ -9,39 +8,63 @@
 
 <FluentStack Orientation="Orientation.Vertical">
     <FluentTextField @bind-value=_slug></FluentTextField>
-    <FluentButton Loading="@_summarizing" OnClick="@StartWorkflowMockAsync" Appearance="Appearance.Accent">Summarize</FluentButton>
+    <FluentButton Loading="@_summarizing" OnClick="@StartWorkflowAsync" Appearance="Appearance.Accent">Summarize</FluentButton>
     <FluentTextArea @bind-Value=_statuses Rows="12" Cols="60" Label="Logs" />
     <FluentTextArea @bind-Value=_summary Rows="12" Cols="60" Label="Summary"/>
 </FluentStack>
 
 @code {
+
     bool _summarizing = false;
     private string? _instanceId;
     private string? _statuses;
     private string _slug = "an-update-on-xamarin-support-in-rider-the-net-tools-blog-18e42ea824d";
     private string _summary = "";
 
-    async Task StartWorkflowMockAsync()
+    async Task StartWorkflowAsync()
     {
         _summarizing = true;
 
-        _instanceId = Guid.NewGuid().ToString();
+        var startWorkflowResponse = await DaprClient.StartWorkflowAsync("dapr", nameof(ArticleSummarizingWorkflow), "123", new ArticleToSummarize(_slug));
+
+        _instanceId = startWorkflowResponse.InstanceId;
         
-        UpdateStatus($"Workflow created at {DateTime.Now:HH:mm:ss}");
-        UpdateStatus($"Started at {DateTime.Now:HH:mm:ss}");
+        var waitForWorkflowStartAsync = await DaprClient.WaitForWorkflowStartAsync(_instanceId, "dapr");
         
-        await Task.Delay(1000);
+        UpdateStatus($"Workflow created at {waitForWorkflowStartAsync.CreatedAt:HH:mm:ss}");
         
-        UpdateStatus($"Still running...");
-        await Task.Delay(1000);
-        UpdateStatus($"Still processing article...");
-        await Task.Delay(1000);
-        UpdateStatus($"Generating summary...");
-        await Task.Delay(1000);
+        if (waitForWorkflowStartAsync.RuntimeStatus == WorkflowRuntimeStatus.Running)
+        {
+            UpdateStatus($"Started at {waitForWorkflowStartAsync.LastUpdatedAt:HH:mm:ss}");
+        }
+        else
+        {
+            UpdateStatus("Failed");
+            return;
+        }
         
-        UpdateStatus($"Completed at {DateTime.Now:HH:mm:ss}");
-        _summary = "This is a mock summary of the article for build purposes.";
-        StateHasChanged();
+        var workflowResponse = await DaprClient.GetWorkflowAsync(_instanceId, "dapr");
+
+        while (workflowResponse.RuntimeStatus == WorkflowRuntimeStatus.Running)
+        {
+            UpdateStatus($"Still running {workflowResponse.Properties["dapr.workflow.custom_status"]}...");
+
+            await Task.Delay(1000);
+            workflowResponse = await DaprClient.GetWorkflowAsync(_instanceId, "dapr");
+        }
+        
+        if (workflowResponse.RuntimeStatus ==  WorkflowRuntimeStatus.Completed)
+        {
+            UpdateStatus($"Completed at {workflowResponse.LastUpdatedAt:HH:mm:ss}");
+
+            var articleSummarized = workflowResponse.ReadOutputAs<ArticleSummarized>();
+            _summary = articleSummarized.Summary;
+            StateHasChanged();
+        }
+        else
+        {
+            UpdateStatus($"Failed at {workflowResponse.LastUpdatedAt:HH:mm:ss}");
+        }
 
         _summarizing = false;
     }
@@ -50,21 +73,5 @@
     {
         _statuses += $"{status}{Environment.NewLine}";
         StateHasChanged();
-    }
-    
-    // Class mocks for build purposes
-    private class ArticleToSummarize
-    {
-        public ArticleToSummarize(string slug)
-        {
-            Slug = slug;
-        }
-
-        public string Slug { get; }
-    }
-    
-    private class ArticleSummarized
-    {
-        public string Summary { get; set; } = "";
     }
 }

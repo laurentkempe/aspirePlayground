@@ -1,6 +1,3 @@
-using Moq;
-using System;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add service defaults & Aspire components.
@@ -16,12 +13,14 @@ var tracerProvider = OpenTelemetry.Sdk.CreateTracerProviderBuilder()
     .AddOtlpExporter()
     .Build();
 
-// Register a mock chat client 
-var mockClient = new Mock<IChatClient>();
-mockClient.Setup(m => m.CompleteAsync(It.IsAny<string>(), It.IsAny<ChatOptions>(), It.IsAny<CancellationToken>()))
-    .ReturnsAsync(new ChatCompletion(new ChatMessage(ChatRole.Assistant, "Mock response")));
-
-builder.Services.AddSingleton<IChatClient>(mockClient.Object);
+// 👇🏼 Injecting Ollama Chat Client with Open Telemetry and Tool calling 
+builder.Services.AddChatClient(clientBuilder => clientBuilder
+    .UseLogging()
+    .UseFunctionInvocation()
+    .UseOpenTelemetry(sourceName: sourceName, configure: instance => {
+        instance.EnableSensitiveData = true;
+    })
+    .Use(new OllamaChatClient(new Uri("http://localhost:11434/"), "llama3.2:3b")));
 
 var app = builder.Build();
 
