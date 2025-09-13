@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OpenAI.SummarizeService\OpenAI.SummarizeService.csproj" />
     <ProjectReference Include="..\OpenAI.Web\OpenAI.Web.csproj" />
   </ItemGroup>
 

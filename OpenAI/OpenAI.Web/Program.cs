@@ -2,6 +2,7 @@ using GraphQL.Client.Abstractions;
 using GraphQL.Client.Http;
 using GraphQL.Client.Serializer.SystemTextJson;
 using Microsoft.FluentUI.AspNetCore.Components;
+using OpenAI.Shared;
 using OpenAI.Web;
 using OpenAI.Web.Components;
 
